@@ -75,6 +75,22 @@
     }
     .hero-cta:hover { opacity: .85; }
 
+    /* ── SCREENSHOTS ── */
+    .screenshots { padding: 4rem 1.5rem; background: var(--white); text-align: center; }
+    .screenshots-row {
+      display: flex; justify-content: center; gap: 2rem;
+      flex-wrap: wrap; margin-top: 2.5rem;
+    }
+    .phone-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    }
+    .phone-wrap img {
+      width: 200px; border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10);
+      border: 1px solid var(--border);
+    }
+    .phone-caption { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+
     /* ── STATUS DEMO ── */
     .demo {
       display: flex; justify-content: center; gap: 0.75rem;
@@ -93,25 +109,6 @@
     .dot-green  { background: var(--green); }
     .dot-orange { background: var(--orange); }
     .dot-red    { background: var(--red); }
-
-
-    /* ── SCREENSHOTS ── */
-    .screenshots { padding: 4rem 1.5rem; background: var(--white); text-align: center; }
-    .screenshots-row {
-      display: flex; justify-content: center; gap: 2rem;
-      flex-wrap: wrap; margin-top: 2.5rem;
-    }
-    .phone-wrap {
-      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
-    }
-    .phone-wrap img {
-      width: 200px; border-radius: 24px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10);
-      border: 1px solid var(--border);
-    }
-    .phone-caption {
-      font-size: 0.8rem; color: var(--muted); font-weight: 500;
-    }
 
     /* ── PILLARS ── */
     .pillars { background: var(--light); padding: 4rem 1.5rem; }
@@ -140,10 +137,7 @@
 
     /* ── HOW IT WORKS ── */
     .how { padding: 4rem 1.5rem; background: var(--white); }
-    .steps {
-      display: flex; flex-direction: column; gap: 2rem;
-      max-width: 640px; margin: 0 auto;
-    }
+    .steps { display: flex; flex-direction: column; gap: 2rem; max-width: 640px; margin: 0 auto; }
     .step { display: flex; gap: 1.25rem; align-items: flex-start; }
     .step-num {
       flex-shrink: 0; width: 36px; height: 36px;
@@ -165,9 +159,7 @@
     thead th:first-child { color: var(--muted); }
     thead th:last-child { color: var(--green); }
     tbody td {
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid var(--border);
-      color: var(--mid);
+      padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--mid);
     }
     tbody td:first-child { color: var(--muted); }
     tbody tr:last-child td { border-bottom: none; }
@@ -196,6 +188,8 @@
     }
     footer a { color: #9ca3af; text-decoration: none; }
     footer a:hover { color: var(--white); }
+
+    [data-lang] { display: none; }
   </style>
 </head>
 <body>
@@ -204,185 +198,230 @@
   <nav>
     <a class="nav-logo" href="#">CartCat</a>
     <div class="nav-links">
-      <a href="#jak-dziala">Jak to działa</a>
-      <a href="#porownanie">Dlaczego my</a>
-      <a href="privacy/">Polityka prywatności</a>
-      <a href="en/" style="font-weight:600;">EN</a>
+      <a data-lang="pl" href="#jak-dziala">Jak to działa</a>
+      <a data-lang="pl" href="#porownanie">Dlaczego my</a>
+      <a data-lang="pl" href="privacy/">Polityka prywatności</a>
+      <a data-lang="en" href="#how">How it works</a>
+      <a data-lang="en" href="#compare">Why us</a>
+      <a data-lang="en" href="privacy/?lang=en">Privacy Policy</a>
+      <a id="lang-link" href="?lang=en" style="font-weight:600;">EN</a>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-badge">Aplikacja do zarządzania zapasami</div>
-    <h1>Koniec z przepisywaniem<br><span>tej samej listy.</span></h1>
-    <p>
-      CartCat śledzi zapasy w twoim domu w czasie rzeczywistym —
-      widoczne dla wszystkich domowników.
-      Jedno kliknięcie żeby zaktualizować. Wszyscy widzą to od razu.
-    </p>
-    <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshoppingapp">
-      Pobierz z Google Play
-    </a>
+    <div data-lang="pl">
+      <div class="hero-badge">Aplikacja do zarządzania zapasami</div>
+      <h1>Koniec z przepisywaniem<br><span>tej samej listy.</span></h1>
+      <p>CartCat śledzi zapasy w twoim domu w czasie rzeczywistym — widoczne dla wszystkich domowników. Jedno kliknięcie żeby zaktualizować. Wszyscy widzą to od razu.</p>
+      <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshoppingapp">Pobierz z Google Play</a>
+    </div>
+    <div data-lang="en">
+      <div class="hero-badge">Household inventory app</div>
+      <h1>Stop rewriting<br><span>the same list.</span></h1>
+      <p>CartCat keeps a live inventory of your household products — shared in real time with everyone who lives with you. One tap to update. Everyone sees it instantly.</p>
+      <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshoppingapp">Get it on Google Play</a>
+    </div>
   </section>
 
   <!-- SCREENSHOTS -->
   <section class="screenshots" id="screenshots">
-    <p class="section-label">Aplikacja w akcji</p>
-    <h2 class="section-title">Zobacz jak to wygląda.</h2>
+    <div data-lang="pl">
+      <p class="section-label">Aplikacja w akcji</p>
+      <h2 class="section-title">Zobacz jak to wygląda.</h2>
+    </div>
+    <div data-lang="en">
+      <p class="section-label">App in action</p>
+      <h2 class="section-title">See how it looks.</h2>
+    </div>
     <div class="screenshots-row">
       <div class="phone-wrap">
-        <img src="screenshots/screenshot_pro_main.png" alt="Główny widok inwentarza" loading="lazy" />
-        <p class="phone-caption">Pełny przegląd zapasów</p>
+        <img src="screenshots/screenshot_pro_main.png" alt="Household inventory main view" loading="lazy" />
+        <p data-lang="pl" class="phone-caption">Pełny przegląd zapasów</p>
+        <p data-lang="en" class="phone-caption">Full inventory overview</p>
       </div>
       <div class="phone-wrap">
-        <img src="screenshots/screenshot_pro_cart.png" alt="Tryb zakupów" loading="lazy" />
-        <p class="phone-caption">Tryb zakupów — tylko braki</p>
+        <img src="screenshots/screenshot_pro_cart.png" alt="Shopping mode" loading="lazy" />
+        <p data-lang="pl" class="phone-caption">Tryb zakupów — tylko braki</p>
+        <p data-lang="en" class="phone-caption">Shopping mode — needs only</p>
       </div>
       <div class="phone-wrap">
-        <img src="screenshots/screenshot_pro_menu.png" alt="Zarządzanie gospodarstwem" loading="lazy" />
-        <p class="phone-caption">Wspólne gospodarstwo domowe</p>
+        <img src="screenshots/screenshot_pro_menu.png" alt="Household menu" loading="lazy" />
+        <p data-lang="pl" class="phone-caption">Wspólne gospodarstwo domowe</p>
+        <p data-lang="en" class="phone-caption">Shared household</p>
       </div>
       <div class="phone-wrap">
-        <img src="screenshots/screenshot_pro_edit.png" alt="Edycja produktu" loading="lazy" />
-        <p class="phone-caption">Edytuj produkty w sekundę</p>
+        <img src="screenshots/screenshot_pro_edit.png" alt="Edit product" loading="lazy" />
+        <p data-lang="pl" class="phone-caption">Edytuj produkty w sekundę</p>
+        <p data-lang="en" class="phone-caption">Edit products in seconds</p>
       </div>
     </div>
   </section>
 
   <!-- STATUS DEMO -->
-  <section class="demo" aria-label="Przykłady statusów produktów">
-    <div class="demo-card"><span class="dot dot-green"></span> Mleko — na stanie</div>
-    <div class="demo-card"><span class="dot dot-orange"></span> Chleb — kończy się</div>
-    <div class="demo-card"><span class="dot dot-red"></span> Jajka — do kupienia</div>
-    <div class="demo-card"><span class="dot dot-green"></span> Proszek — na stanie</div>
-    <div class="demo-card"><span class="dot dot-red"></span> Kawa — do kupienia</div>
+  <section class="demo">
+    <div data-lang="pl" style="display:contents">
+      <div class="demo-card"><span class="dot dot-green"></span> Mleko — na stanie</div>
+      <div class="demo-card"><span class="dot dot-orange"></span> Chleb — kończy się</div>
+      <div class="demo-card"><span class="dot dot-red"></span> Jajka — do kupienia</div>
+      <div class="demo-card"><span class="dot dot-green"></span> Proszek — na stanie</div>
+      <div class="demo-card"><span class="dot dot-red"></span> Kawa — do kupienia</div>
+    </div>
+    <div data-lang="en" style="display:contents">
+      <div class="demo-card"><span class="dot dot-green"></span> Milk — stocked</div>
+      <div class="demo-card"><span class="dot dot-orange"></span> Bread — running low</div>
+      <div class="demo-card"><span class="dot dot-red"></span> Eggs — need to buy</div>
+      <div class="demo-card"><span class="dot dot-green"></span> Detergent — stocked</div>
+      <div class="demo-card"><span class="dot dot-red"></span> Coffee — need to buy</div>
+    </div>
   </section>
-
-
 
   <!-- PILLARS -->
   <section class="pillars" id="funkcje">
-    <p class="section-label">Główna idea</p>
-    <h2 class="section-title">Zbudowana wokół jednego kliknięcia.</h2>
-    <div class="pillars-grid">
-      <div class="pillar">
-        <div class="pillar-icon">👁️</div>
-        <h3>Widok w czasie rzeczywistym</h3>
-        <p>Każdy domownik widzi co jest na stanie i czego brakuje — na pierwszy rzut oka, natychmiast.</p>
+    <div data-lang="pl">
+      <p class="section-label">Główna idea</p>
+      <h2 class="section-title">Zbudowana wokół jednego kliknięcia.</h2>
+      <div class="pillars-grid">
+        <div class="pillar"><div class="pillar-icon">👁️</div><h3>Widok w czasie rzeczywistym</h3><p>Każdy domownik widzi co jest na stanie i czego brakuje — na pierwszy rzut oka, natychmiast.</p></div>
+        <div class="pillar"><div class="pillar-icon">👆</div><h3>Kliknij, nie pisz</h3><p>Jedno kliknięcie zmienia stan produktu: OK → kończy się → do kupienia. Zero pisania po konfiguracji.</p></div>
+        <div class="pillar"><div class="pillar-icon">🔁</div><h3>Te same produkty, aktualny stan</h3><p>Stworzona dla domów, które kupują to samo co tydzień. Zmienia się tylko to, ile zostało.</p></div>
+        <div class="pillar"><div class="pillar-icon">🏠</div><h3>Wspólna od początku</h3><p>Nie lista osobista z przyciskiem udostępniania. Narzędzie domowe od pierwszego dnia. Dołącz kodem 6-cyfrowym, widzisz wszystko od razu.</p></div>
       </div>
-      <div class="pillar">
-        <div class="pillar-icon">👆</div>
-        <h3>Kliknij, nie pisz</h3>
-        <p>Jedno kliknięcie zmienia stan produktu: OK → kończy się → do kupienia. Zero pisania po konfiguracji.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">🔁</div>
-        <h3>Te same produkty, aktualny stan</h3>
-        <p>Stworzona dla domów, które kupują to samo co tydzień. Zmienia się tylko to, ile zostało.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">🏠</div>
-        <h3>Wspólna od początku</h3>
-        <p>Nie lista osobista z przyciskiem udostępniania. Narzędzie domowe od pierwszego dnia. Dołącz kodem 6-cyfrowym, widzisz wszystko od razu.</p>
+    </div>
+    <div data-lang="en">
+      <p class="section-label">Core idea</p>
+      <h2 class="section-title">Built around one tap.</h2>
+      <div class="pillars-grid">
+        <div class="pillar"><div class="pillar-icon">👁️</div><h3>Real-time shared view</h3><p>Every household member sees what's stocked and what's running low — at a glance, in real time.</p></div>
+        <div class="pillar"><div class="pillar-icon">👆</div><h3>Tap, don't type</h3><p>One tap cycles a product through three states: OK → running low → need to buy. Zero typing after setup.</p></div>
+        <div class="pillar"><div class="pillar-icon">🔁</div><h3>Same products, fresh status</h3><p>Built for how households actually shop — the same items, week after week. Only the status changes.</p></div>
+        <div class="pillar"><div class="pillar-icon">🏠</div><h3>Shared by default</h3><p>Not a personal list with a share button. A household tool from day one. Join with a 6-digit code, see everything instantly.</p></div>
       </div>
     </div>
   </section>
 
   <!-- HOW IT WORKS -->
   <section class="how" id="jak-dziala">
-    <p class="section-label">Konfiguracja</p>
-    <h2 class="section-title">Jak to działa</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div>
-          <h3>Utwórz dom</h3>
-          <p>Zarejestruj się, nazwij swój dom i otrzymaj 6-cyfrowy kod do udostępnienia.</p>
-        </div>
+    <div data-lang="pl">
+      <p class="section-label">Konfiguracja</p>
+      <h2 class="section-title">Jak to działa</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div><h3>Utwórz dom</h3><p>Zarejestruj się, nazwij swój dom i otrzymaj 6-cyfrowy kod do udostępnienia.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div><h3>Dodaj produkty raz</h3><p>Zbuduj inwentarz swojego domu — mleko, chleb, środki czystości. Robisz to tylko raz.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3>Zaproś domowników</h3><p>Podziel się kodem. Wszyscy dołączają i od razu widzą ten sam, aktualny inwentarz.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3>Klikaj żeby aktualizować — na zawsze</h3><p>Mleko się kończy? Jedno kliknięcie. Kupiłeś jajka? Jedno kliknięcie. Widok wszystkich aktualizuje się w czasie rzeczywistym — bez SMS-ów.</p></div></div>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div>
-          <h3>Dodaj produkty raz</h3>
-          <p>Zbuduj inwentarz swojego domu — mleko, chleb, środki czystości. Robisz to tylko raz.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div>
-          <h3>Zaproś domowników</h3>
-          <p>Podziel się kodem. Wszyscy dołączają i od razu widzą ten sam, aktualny inwentarz.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div>
-          <h3>Klikaj żeby aktualizować — na zawsze</h3>
-          <p>Mleko się kończy? Jedno kliknięcie. Kupiłeś jajka? Jedno kliknięcie. Widok wszystkich aktualizuje się w czasie rzeczywistym — bez SMS-ów.</p>
-        </div>
+    </div>
+    <div data-lang="en" id="how">
+      <p class="section-label">Setup</p>
+      <h2 class="section-title">How it works</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div><h3>Create a household</h3><p>Sign up, name your household, and get a shareable 6-digit code.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div><h3>Add your products once</h3><p>Build your household's inventory — milk, bread, detergent, whatever you buy regularly. You do this once.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3>Invite your household</h3><p>Share the 6-digit code. Everyone joins and immediately sees the same live inventory.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3>Tap to update, forever</h3><p>Running low on milk? One tap. Bought eggs? One tap. Everyone's view updates in real time — no messages needed.</p></div></div>
       </div>
     </div>
   </section>
 
   <!-- COMPARE -->
   <section class="compare" id="porownanie">
-    <p class="section-label">Dlaczego CartCat</p>
-    <h2 class="section-title">To nie jest kolejna lista zakupów.</h2>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Zwykłe aplikacje do list</th>
-            <th>CartCat</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Nowa lista przed każdym zakupem</td>
-            <td>Produkty zostają — zmieniasz tylko stan</td>
-          </tr>
-          <tr>
-            <td>Odhaczasz i wyrzucasz listę</td>
-            <td>Stany zmieniają się w kółko — lista nigdy nie jest "skończona"</td>
-          </tr>
-          <tr>
-            <td>Dużo pisania podczas codziennego użycia</td>
-            <td>Jedno kliknięcie, zero pisania po konfiguracji</td>
-          </tr>
-          <tr>
-            <td>Zaprojektowana dla jednej osoby, udostępnianie doklejone na końcu</td>
-            <td>Wspólny widok domowy od pierwszego dnia</td>
-          </tr>
-          <tr>
-            <td>Zoptymalizowana pod kątem zakupów</td>
-            <td>Zoptymalizowana pod kątem bieżącej świadomości domowej</td>
-          </tr>
-        </tbody>
-      </table>
+    <div data-lang="pl">
+      <p class="section-label">Dlaczego CartCat</p>
+      <h2 class="section-title">To nie jest kolejna lista zakupów.</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Zwykłe aplikacje do list</th><th>CartCat</th></tr></thead>
+          <tbody>
+            <tr><td>Nowa lista przed każdym zakupem</td><td>Produkty zostają — zmieniasz tylko stan</td></tr>
+            <tr><td>Odhaczasz i wyrzucasz listę</td><td>Stany zmieniają się w kółko — lista nigdy nie jest "skończona"</td></tr>
+            <tr><td>Dużo pisania podczas codziennego użycia</td><td>Jedno kliknięcie, zero pisania po konfiguracji</td></tr>
+            <tr><td>Zaprojektowana dla jednej osoby, udostępnianie doklejone na końcu</td><td>Wspólny widok domowy od pierwszego dnia</td></tr>
+            <tr><td>Zoptymalizowana pod kątem zakupów</td><td>Zoptymalizowana pod kątem bieżącej świadomości domowej</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div data-lang="en" id="compare">
+      <p class="section-label">Why CartCat</p>
+      <h2 class="section-title">Not another shopping list app.</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Traditional list apps</th><th>CartCat</th></tr></thead>
+          <tbody>
+            <tr><td>Write a new list before every trip</td><td>Products persist — just update their status</td></tr>
+            <tr><td>Check off items, discard the list</td><td>Statuses cycle continuously — the list is never "done"</td></tr>
+            <tr><td>Typing-heavy during daily use</td><td>One tap, zero typing after setup</td></tr>
+            <tr><td>Designed for one person, sharing bolted on</td><td>Shared household view from day one</td></tr>
+            <tr><td>Optimised for the shopping trip</td><td>Optimised for ongoing household awareness</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
   <!-- WHO IT'S FOR -->
   <section class="who" id="dla-kogo">
-    <p class="section-label">Dla kogo</p>
-    <h2 class="section-title">Stworzona dla wspólnego życia.</h2>
-    <div class="who-grid">
-      <div class="who-card"><strong>Rodziny</strong>Pary, rodzice z dziećmi, wielopokoleniowe domy.</div>
-      <div class="who-card"><strong>Pary</strong>Mieszkacie razem i robicie zakupy — bez "czy kupiłeś mleko?"</div>
-      <div class="who-card"><strong>Współlokatorzy</strong>Akademiki i mieszkania dzielone — wszyscy na bieżąco.</div>
-      <div class="who-card"><strong>Inne przestrzenie</strong>Kuchnie biurowe, domki wakacyjne, placówki opiekuńcze.</div>
+    <div data-lang="pl">
+      <p class="section-label">Dla kogo</p>
+      <h2 class="section-title">Stworzona dla wspólnego życia.</h2>
+      <div class="who-grid">
+        <div class="who-card"><strong>Rodziny</strong>Pary, rodzice z dziećmi, wielopokoleniowe domy.</div>
+        <div class="who-card"><strong>Pary</strong>Mieszkacie razem i robicie zakupy — bez "czy kupiłeś mleko?"</div>
+        <div class="who-card"><strong>Współlokatorzy</strong>Akademiki i mieszkania dzielone — wszyscy na bieżąco.</div>
+        <div class="who-card"><strong>Inne przestrzenie</strong>Kuchnie biurowe, domki wakacyjne, placówki opiekuńcze.</div>
+      </div>
+    </div>
+    <div data-lang="en">
+      <p class="section-label">Who it's for</p>
+      <h2 class="section-title">Built for shared living.</h2>
+      <div class="who-grid">
+        <div class="who-card"><strong>Families</strong>Couples, parents with kids, multi-generational homes.</div>
+        <div class="who-card"><strong>Couples</strong>Living together, shopping together — without the "did you buy milk?" texts.</div>
+        <div class="who-card"><strong>Roommates</strong>Student housing or shared flats — everyone on the same page.</div>
+        <div class="who-card"><strong>Shared spaces</strong>Office kitchens, vacation homes, care facilities.</div>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <span>&copy; 2026 CartCat</span>
-    <div style="display:flex;gap:1.5rem;">
+    <div data-lang="pl" style="display:flex;gap:1.5rem;">
       <a href="privacy/">Polityka prywatności</a>
       <a href="mailto:patryk@soulsoft.pl">Kontakt</a>
-      <a href="en/">English</a>
+    </div>
+    <div data-lang="en" style="display:flex;gap:1.5rem;">
+      <a href="privacy/?lang=en">Privacy Policy</a>
+      <a href="mailto:patryk@soulsoft.pl">Contact</a>
     </div>
   </footer>
 
+  <script>
+    const params = new URLSearchParams(location.search);
+    const lang = params.get('lang') === 'en' ? 'en' : 'pl';
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      const isContents = el.style.display === 'contents';
+      if (el.dataset.lang === lang) {
+        el.style.display = isContents ? 'contents' : 'block';
+      } else {
+        el.style.display = 'none';
+      }
+    });
+
+    const toggle = document.getElementById('lang-link');
+    if (lang === 'en') {
+      toggle.href = '?lang=pl';
+      toggle.textContent = 'PL';
+      document.title = 'CartCat — Household inventory for shared living';
+    } else {
+      toggle.href = '?lang=en';
+      toggle.textContent = 'EN';
+      document.title = 'CartCat — Domowa lista zakupów dla całego domu';
+    }
+  </script>
 </body>
 </html>
