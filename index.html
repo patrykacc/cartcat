@@ -94,6 +94,25 @@
     .dot-orange { background: var(--orange); }
     .dot-red    { background: var(--red); }
 
+
+    /* ── SCREENSHOTS ── */
+    .screenshots { padding: 4rem 1.5rem; background: var(--white); text-align: center; }
+    .screenshots-row {
+      display: flex; justify-content: center; gap: 2rem;
+      flex-wrap: wrap; margin-top: 2.5rem;
+    }
+    .phone-wrap {
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    }
+    .phone-wrap img {
+      width: 200px; border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10);
+      border: 1px solid var(--border);
+    }
+    .phone-caption {
+      font-size: 0.8rem; color: var(--muted); font-weight: 500;
+    }
+
     /* ── PILLARS ── */
     .pillars { background: var(--light); padding: 4rem 1.5rem; }
     .section-label {
@@ -213,6 +232,27 @@
     <div class="demo-card"><span class="dot dot-red"></span> Jajka — do kupienia</div>
     <div class="demo-card"><span class="dot dot-green"></span> Proszek — na stanie</div>
     <div class="demo-card"><span class="dot dot-red"></span> Kawa — do kupienia</div>
+  </section>
+
+
+  <!-- SCREENSHOTS -->
+  <section class="screenshots" id="screenshots">
+    <p class="section-label">Aplikacja w akcji</p>
+    <h2 class="section-title">Zobacz jak to wygląda.</h2>
+    <div class="screenshots-row">
+      <div class="phone-wrap">
+        <img src="screenshots/screenshot_pro_main.png" alt="Główny widok inwentarza" loading="lazy" />
+        <p class="phone-caption">Pełny przegląd zapasów</p>
+      </div>
+      <div class="phone-wrap">
+        <img src="screenshots/screenshot_pro_cart.png" alt="Tryb zakupów" loading="lazy" />
+        <p class="phone-caption">Tryb zakupów — tylko braki</p>
+      </div>
+      <div class="phone-wrap">
+        <img src="screenshots/screenshot_pro_menu.png" alt="Zarządzanie gospodarstwem" loading="lazy" />
+        <p class="phone-caption">Wspólne gospodarstwo domowe</p>
+      </div>
+    </div>
   </section>
 
   <!-- PILLARS -->
