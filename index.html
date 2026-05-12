@@ -544,7 +544,6 @@
       },
     ];
     let demoStatusIndex = 0;
-    let manualPauseUntil = 0;
 
     const renderDemoStatus = () => {
       const current = demoStatuses[demoStatusIndex];
@@ -564,17 +563,11 @@
 
       tile.addEventListener('click', () => {
         cycleDemoStatus();
-        manualPauseUntil = Date.now() + 7000;
       });
       tile.addEventListener('pointerdown', () => tile.classList.add('is-pressed'));
       ['pointerup', 'pointercancel', 'pointerleave'].forEach(eventName => {
         tile.addEventListener(eventName, () => tile.classList.remove('is-pressed'));
       });
-
-      window.setInterval(() => {
-        if (Date.now() < manualPauseUntil) return;
-        cycleDemoStatus();
-      }, 3200);
     }
   </script>
 </body>
