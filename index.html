@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CartCat — Domowa lista zakupów dla całego domu</title>
+  <title>Shopping Cat — Domowy magazyn produktow dla calego domu</title>
+  <link rel="canonical" href="https://shoppingcat.app/" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -196,7 +197,7 @@
 
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="#">CartCat</a>
+    <a class="nav-logo" href="#">Shopping Cat</a>
     <div class="nav-links">
       <a data-lang="pl" href="#jak-dziala">Jak to działa</a>
       <a data-lang="pl" href="#porownanie">Dlaczego my</a>
@@ -213,14 +214,14 @@
     <div data-lang="pl">
       <div class="hero-badge">Aplikacja do zarządzania zapasami</div>
       <h1>Koniec z przepisywaniem<br><span>tej samej listy.</span></h1>
-      <p>CartCat śledzi zapasy w twoim domu w czasie rzeczywistym — widoczne dla wszystkich domowników. Jedno kliknięcie żeby zaktualizować. Wszyscy widzą to od razu.</p>
-      <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshoppingapp">Pobierz z Google Play</a>
+      <p>Shopping Cat śledzi zapasy w twoim domu w czasie rzeczywistym — widoczne dla wszystkich domowników. Jedno kliknięcie żeby zaktualizować. Wszyscy widzą to od razu.</p>
+      <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshopping.app">Pobierz z Google Play</a>
     </div>
     <div data-lang="en">
       <div class="hero-badge">Household inventory app</div>
       <h1>Stop rewriting<br><span>the same list.</span></h1>
-      <p>CartCat keeps a live inventory of your household products — shared in real time with everyone who lives with you. One tap to update. Everyone sees it instantly.</p>
-      <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshoppingapp">Get it on Google Play</a>
+      <p>Shopping Cat keeps a live inventory of your household products — shared in real time with everyone who lives with you. One tap to update. Everyone sees it instantly.</p>
+      <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshopping.app">Get it on Google Play</a>
     </div>
   </section>
 
@@ -327,11 +328,11 @@
   <!-- COMPARE -->
   <section class="compare" id="porownanie">
     <div data-lang="pl">
-      <p class="section-label">Dlaczego CartCat</p>
+      <p class="section-label">Dlaczego Shopping Cat</p>
       <h2 class="section-title">To nie jest kolejna lista zakupów.</h2>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Zwykłe aplikacje do list</th><th>CartCat</th></tr></thead>
+          <thead><tr><th>Zwykłe aplikacje do list</th><th>Shopping Cat</th></tr></thead>
           <tbody>
             <tr><td>Nowa lista przed każdym zakupem</td><td>Produkty zostają — zmieniasz tylko stan</td></tr>
             <tr><td>Odhaczasz i wyrzucasz listę</td><td>Stany zmieniają się w kółko — lista nigdy nie jest "skończona"</td></tr>
@@ -343,11 +344,11 @@
       </div>
     </div>
     <div data-lang="en" id="compare">
-      <p class="section-label">Why CartCat</p>
+      <p class="section-label">Why Shopping Cat</p>
       <h2 class="section-title">Not another shopping list app.</h2>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Traditional list apps</th><th>CartCat</th></tr></thead>
+          <thead><tr><th>Traditional list apps</th><th>Shopping Cat</th></tr></thead>
           <tbody>
             <tr><td>Write a new list before every trip</td><td>Products persist — just update their status</td></tr>
             <tr><td>Check off items, discard the list</td><td>Statuses cycle continuously — the list is never "done"</td></tr>
@@ -386,14 +387,14 @@
 
   <!-- FOOTER -->
   <footer>
-    <span>&copy; 2026 CartCat</span>
+    <span>&copy; 2026 Shopping Cat</span>
     <div data-lang="pl" style="display:flex;gap:1.5rem;">
       <a href="privacy/">Polityka prywatności</a>
-      <a href="mailto:patryk@soulsoft.pl">Kontakt</a>
+      <a href="mailto:hello@shoppingcat.app">Kontakt</a>
     </div>
     <div data-lang="en" style="display:flex;gap:1.5rem;">
       <a href="privacy/?lang=en">Privacy Policy</a>
-      <a href="mailto:patryk@soulsoft.pl">Contact</a>
+      <a href="mailto:hello@shoppingcat.app">Contact</a>
     </div>
   </footer>
 
@@ -416,11 +417,11 @@
     if (lang === 'en') {
       toggle.href = '?lang=pl';
       toggle.textContent = 'PL';
-      document.title = 'CartCat — Household inventory for shared living';
+      document.title = 'Shopping Cat — Household inventory for shared living';
     } else {
       toggle.href = '?lang=en';
       toggle.textContent = 'EN';
-      document.title = 'CartCat — Domowa lista zakupów dla całego domu';
+      document.title = 'Shopping Cat — Domowy magazyn produktow dla calego domu';
     }
   </script>
 </body>
