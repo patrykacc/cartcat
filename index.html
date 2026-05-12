@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shopping Cat — Domowy magazyn produktow dla calego domu</title>
   <link rel="canonical" href="https://shoppingcat.app/" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -39,7 +40,14 @@
       display: flex; align-items: center; justify-content: space-between;
       height: 56px;
     }
-    .nav-logo { font-weight: 700; font-size: 1.05rem; color: var(--dark); text-decoration: none; }
+    .nav-logo {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-weight: 700; font-size: 1.05rem; color: var(--dark); text-decoration: none;
+    }
+    .nav-logo img {
+      width: 32px; height: 32px; border-radius: 9px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.12);
+    }
     .nav-links { display: flex; gap: 1.5rem; }
     .nav-links a { font-size: 0.875rem; color: var(--muted); text-decoration: none; }
     .nav-links a:hover { color: var(--dark); }
@@ -197,7 +205,10 @@
 
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="#">Shopping Cat</a>
+    <a class="nav-logo" href="#">
+      <img src="assets/logo.png" alt="" width="32" height="32" />
+      <span>Shopping Cat</span>
+    </a>
     <div class="nav-links">
       <a data-lang="pl" href="#jak-dziala">Jak to działa</a>
       <a data-lang="pl" href="#porownanie">Dlaczego my</a>

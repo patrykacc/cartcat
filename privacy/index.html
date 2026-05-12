@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Polityka prywatnosci - Shopping Cat</title>
   <link rel="canonical" href="https://shoppingcat.app/privacy/" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -27,6 +28,10 @@
       font-size: 0.875rem; color: #6b7280; text-decoration: none;
     }
     .back:hover { color: #111827; }
+    .back-logo {
+      width: 24px; height: 24px; border-radius: 7px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.12);
+    }
 
     .lang-toggle {
       font-size: 0.8rem; font-weight: 600; color: #6b7280;
@@ -84,7 +89,11 @@
 </head>
 <body>
   <div class="top-bar">
-    <a class="back" id="back-link" href="../">&#8592; Shopping Cat</a>
+    <a class="back" id="back-link" href="../">
+      <span>&#8592;</span>
+      <img class="back-logo" src="../assets/logo.png" alt="" width="24" height="24" />
+      <span>Shopping Cat</span>
+    </a>
     <a class="lang-toggle" id="lang-link" href="?lang=en">EN</a>
   </div>
 
