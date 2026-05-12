@@ -41,12 +41,12 @@
       height: 56px;
     }
     .nav-logo {
-      display: inline-flex; align-items: center; gap: 0.5rem;
+      display: inline-flex; align-items: center; gap: 0.65rem;
       font-weight: 700; font-size: 1.05rem; color: var(--dark); text-decoration: none;
     }
     .nav-logo img {
-      width: 32px; height: 32px; border-radius: 9px;
-      box-shadow: 0 1px 4px rgba(0,0,0,.12);
+      width: 42px; height: 42px; object-fit: contain;
+      flex: 0 0 auto;
     }
     .nav-links { display: flex; gap: 1.5rem; }
     .nav-links a { font-size: 0.875rem; color: var(--muted); text-decoration: none; }
@@ -206,7 +206,7 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#">
-      <img src="assets/logo.png" alt="" width="32" height="32" />
+      <img src="assets/logo.png" alt="" width="42" height="42" />
       <span>Shopping Cat</span>
     </a>
     <div class="nav-links">
