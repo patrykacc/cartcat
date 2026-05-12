@@ -18,8 +18,8 @@
       --dark:   #24130b;
       --mid:    #57331f;
       --muted:  #8a5a3b;
-      --light:  #fff7ed;
-      --cream:  #fffbf4;
+      --light:  #fffaf2;
+      --cream:  #fffdf8;
       --border: #fed7aa;
       --white:  #ffffff;
       --shadow: rgba(124, 45, 18, 0.16);
@@ -62,8 +62,8 @@
       text-align: center;
       padding: 4.5rem 1.5rem 4rem;
       background:
-        radial-gradient(circle at top center, rgba(251, 191, 36, 0.5), transparent 34rem),
-        linear-gradient(160deg, #fff7ed 0%, #ffedd5 48%, #fffaf0 100%);
+        radial-gradient(circle at top center, rgba(251, 191, 36, 0.28), transparent 34rem),
+        linear-gradient(160deg, #fffdf8 0%, #fff4e4 48%, #fffdf8 100%);
       border-bottom: 1px solid #fed7aa;
     }
     .hero-brand {
@@ -185,7 +185,7 @@
     .tile-demo .section-title { margin-bottom: 1.5rem; }
 
     /* ── PILLARS ── */
-    .pillars { background: #fff1dc; padding: 4rem 1.5rem; }
+    .pillars { background: #fff6e8; padding: 4rem 1.5rem; }
     .section-label {
       text-align: center; font-size: 0.75rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: .08em;
@@ -224,7 +224,7 @@
     .step p { font-size: 0.875rem; color: var(--muted); }
 
     /* ── COMPARE ── */
-    .compare { background: #fff1dc; padding: 4rem 1.5rem; }
+    .compare { background: #fff6e8; padding: 4rem 1.5rem; }
     .table-wrap { overflow-x: auto; max-width: 760px; margin: 0 auto; }
     table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
     thead th {
@@ -257,14 +257,15 @@
 
     /* ── FOOTER ── */
     footer {
-      background: #2a1409; color: #fed7aa;
+      background: #fff6e8; color: var(--mid);
+      border-top: 1px solid var(--border);
       padding: 2rem 1.5rem;
       display: flex; flex-wrap: wrap; gap: 1rem;
       align-items: center; justify-content: space-between;
       font-size: 0.8rem;
     }
-    footer a { color: #fed7aa; text-decoration: none; }
-    footer a:hover { color: var(--white); }
+    footer a { color: var(--orange-dark); text-decoration: none; font-weight: 600; }
+    footer a:hover { color: var(--dark); }
 
     [data-lang] { display: none; }
 
