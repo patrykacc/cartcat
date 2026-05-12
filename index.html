@@ -182,6 +182,13 @@
       font-size: 0.9rem;
       font-weight: 700;
     }
+    .tile-demo-copy {
+      max-width: 34rem;
+      margin: -0.35rem auto 1.6rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
     .tile-demo .section-title { margin-bottom: 1.5rem; }
 
     /* ── PILLARS ── */
@@ -527,6 +534,7 @@
 
     const tile = document.getElementById('demo-tile');
     const caption = document.getElementById('demo-tile-caption');
+    let audioContext = null;
     const demoStatuses = [
       {
         className: 'status-ok',
@@ -559,10 +567,50 @@
       renderDemoStatus();
     };
 
+    const playClickTick = async () => {
+      try {
+        const AudioContextImpl = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextImpl) return;
+
+        if (!audioContext) {
+          audioContext = new AudioContextImpl();
+        }
+
+        if (audioContext.state === 'suspended') {
+          await audioContext.resume();
+        }
+
+        const now = audioContext.currentTime;
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(880, now);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.08, now + 0.004);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.035);
+
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+
+        oscillator.start(now);
+        oscillator.stop(now + 0.04);
+
+        oscillator.onended = () => {
+          oscillator.disconnect();
+          gain.disconnect();
+        };
+      } catch {
+        // Ignore browser audio failures.
+      }
+    };
+
     if (tile && caption) {
       renderDemoStatus();
 
       tile.addEventListener('click', () => {
+        void playClickTick();
         cycleDemoStatus();
       });
       tile.addEventListener('pointerdown', () => tile.classList.add('is-pressed'));
