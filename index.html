@@ -12,20 +12,24 @@
     :root {
       --green:  #22c55e;
       --orange: #f97316;
+      --orange-dark: #c2410c;
+      --amber:  #fbbf24;
       --red:    #ef4444;
-      --dark:   #111827;
-      --mid:    #374151;
-      --muted:  #6b7280;
-      --light:  #f9fafb;
-      --border: #e5e7eb;
+      --dark:   #24130b;
+      --mid:    #57331f;
+      --muted:  #8a5a3b;
+      --light:  #fff7ed;
+      --cream:  #fffbf4;
+      --border: #fed7aa;
       --white:  #ffffff;
+      --shadow: rgba(124, 45, 18, 0.16);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--white);
+      background: var(--cream);
       color: var(--dark);
       line-height: 1.6;
     }
@@ -33,59 +37,80 @@
     /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
+      background: rgba(255, 251, 244, 0.9);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
       padding: 0 1.5rem;
       display: flex; align-items: center; justify-content: space-between;
-      height: 56px;
+      height: 64px;
     }
     .nav-logo {
       display: inline-flex; align-items: center; gap: 0.65rem;
-      font-weight: 700; font-size: 1.05rem; color: var(--dark); text-decoration: none;
+      font-weight: 800; font-size: 1.05rem; color: var(--dark); text-decoration: none;
     }
+    .nav-logo span { white-space: nowrap; }
     .nav-logo img {
-      width: 42px; height: 42px; object-fit: contain;
+      width: 46px; height: 46px; object-fit: contain;
       flex: 0 0 auto;
     }
     .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a { font-size: 0.875rem; color: var(--muted); text-decoration: none; }
-    .nav-links a:hover { color: var(--dark); }
+    .nav-links a { font-size: 0.875rem; color: var(--muted); text-decoration: none; font-weight: 600; }
+    .nav-links a:hover { color: var(--orange-dark); }
 
     /* ── HERO ── */
     .hero {
       text-align: center;
-      padding: 5rem 1.5rem 4rem;
-      background: linear-gradient(160deg, #f0fdf4 0%, #fafafa 60%);
+      padding: 4.5rem 1.5rem 4rem;
+      background:
+        radial-gradient(circle at top center, rgba(251, 191, 36, 0.5), transparent 34rem),
+        linear-gradient(160deg, #fff7ed 0%, #ffedd5 48%, #fffaf0 100%);
+      border-bottom: 1px solid #fed7aa;
     }
-    .hero-badge {
-      display: inline-block;
-      background: #dcfce7; color: #166534;
-      font-size: 0.75rem; font-weight: 600;
-      padding: 0.25rem 0.75rem; border-radius: 999px;
-      margin-bottom: 1.25rem; letter-spacing: 0.04em; text-transform: uppercase;
+    .hero-brand {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 1rem; margin: 0 auto 0.8rem;
+    }
+    .hero-brand-logo {
+      width: 104px; height: 104px; object-fit: contain;
+      filter: drop-shadow(0 14px 22px rgba(154, 52, 18, 0.2));
+      flex: 0 0 auto;
+    }
+    .hero-brand-name {
+      font-size: clamp(2.2rem, 6vw, 4.25rem);
+      font-weight: 900; line-height: 0.95;
+      color: var(--dark);
+      letter-spacing: 0;
+    }
+    .hero p.hero-slogan {
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      color: var(--orange-dark);
+      font-weight: 700;
+      max-width: 720px;
+      margin: 0 auto 1.75rem;
     }
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3.25rem);
       font-weight: 800; line-height: 1.15;
       color: var(--dark); margin-bottom: 1.25rem;
     }
-    .hero h1 span { color: var(--green); }
+    .hero h1 span { color: var(--orange-dark); }
     .hero p {
       font-size: 1.125rem; color: var(--mid);
       max-width: 560px; margin: 0 auto 2rem;
     }
     .hero-cta {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--dark); color: var(--white);
+      background: linear-gradient(135deg, var(--amber), var(--orange));
+      color: var(--white);
       padding: 0.75rem 1.75rem; border-radius: 8px;
       font-weight: 600; font-size: 0.95rem; text-decoration: none;
-      transition: opacity .15s;
+      box-shadow: 0 14px 30px rgba(194, 65, 12, 0.24);
+      transition: transform .15s, box-shadow .15s;
     }
-    .hero-cta:hover { opacity: .85; }
+    .hero-cta:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(194, 65, 12, 0.3); }
 
     /* ── SCREENSHOTS ── */
-    .screenshots { padding: 4rem 1.5rem; background: var(--white); text-align: center; }
+    .screenshots { padding: 4rem 1.5rem; background: var(--cream); text-align: center; }
     .screenshots-row {
       display: flex; justify-content: center; gap: 2rem;
       flex-wrap: wrap; margin-top: 2.5rem;
@@ -95,36 +120,76 @@
     }
     .phone-wrap img {
       width: 200px; border-radius: 24px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10);
-      border: 1px solid var(--border);
+      box-shadow: 0 18px 42px var(--shadow), 0 2px 8px rgba(87, 51, 31, 0.12);
+      border: 1px solid #fdba74;
+      background: #fff;
     }
     .phone-caption { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
 
-    /* ── STATUS DEMO ── */
-    .demo {
-      display: flex; justify-content: center; gap: 0.75rem;
-      flex-wrap: wrap; padding: 3rem 1.5rem;
-      background: var(--white);
+    /* ── TILE DEMO ── */
+    .tile-demo {
+      padding: 3rem 1.5rem 3.25rem;
+      background: linear-gradient(180deg, var(--cream), var(--light));
+      text-align: center;
     }
-    .demo-card {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.75rem 1.25rem;
-      border-radius: 12px; border: 1.5px solid var(--border);
-      font-weight: 500; font-size: 0.9rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,.06);
-      min-width: 160px;
+    .tile-demo-shell {
+      display: inline-flex; flex-direction: column; align-items: center;
+      gap: 0.85rem;
     }
-    .dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
-    .dot-green  { background: var(--green); }
-    .dot-orange { background: var(--orange); }
-    .dot-red    { background: var(--red); }
+    .app-tile {
+      width: 112px; min-height: 96px;
+      border: 0; border-radius: 12px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 0.65rem 0.5rem;
+      cursor: pointer; touch-action: manipulation;
+      box-shadow: 0 1px 3px rgba(87, 51, 31, 0.16);
+      transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out, border-color 150ms ease-out;
+      will-change: transform, background-color;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .app-tile:hover { box-shadow: 0 8px 18px rgba(124, 45, 18, 0.16); }
+    .app-tile.is-pressed { transform: scale(0.98); }
+    .app-tile.status-ok {
+      background: #6ee7b7;
+      box-shadow: 0 1px 3px rgba(87, 51, 31, 0.16), 0 0 0 1px rgba(16, 185, 129, 0.2) inset;
+    }
+    .app-tile.status-running-low {
+      background: #fde047;
+      box-shadow: 0 1px 3px rgba(87, 51, 31, 0.16), 0 0 0 1px rgba(234, 179, 8, 0.3) inset;
+    }
+    .app-tile.status-need-to-buy {
+      background: #fca5a5;
+      box-shadow: 0 1px 3px rgba(87, 51, 31, 0.16), 0 0 0 1px rgba(239, 68, 68, 0.4) inset;
+    }
+    .app-tile-emoji {
+      font-size: 1.55rem;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .app-tile-name {
+      color: #111827;
+      font-size: 0.75rem;
+      font-weight: 800;
+      line-height: 1.2;
+      min-height: 2.4em;
+      display: flex; align-items: center; justify-content: center;
+      width: 100%;
+      overflow-wrap: anywhere;
+    }
+    .tile-demo-caption {
+      min-height: 1.4em;
+      color: var(--mid);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .tile-demo .section-title { margin-bottom: 1.5rem; }
 
     /* ── PILLARS ── */
-    .pillars { background: var(--light); padding: 4rem 1.5rem; }
+    .pillars { background: #fff1dc; padding: 4rem 1.5rem; }
     .section-label {
       text-align: center; font-size: 0.75rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: .08em;
-      color: var(--muted); margin-bottom: 0.5rem;
+      color: var(--orange-dark); margin-bottom: 0.5rem;
     }
     .section-title {
       text-align: center; font-size: clamp(1.5rem, 3vw, 2rem);
@@ -136,29 +201,30 @@
       gap: 1.5rem; max-width: 900px; margin: 0 auto;
     }
     .pillar {
-      background: var(--white); border-radius: 12px;
+      background: rgba(255, 255, 255, 0.86); border-radius: 12px;
       padding: 1.75rem 1.5rem; border: 1px solid var(--border);
-      box-shadow: 0 1px 3px rgba(0,0,0,.05);
+      box-shadow: 0 8px 24px rgba(124, 45, 18, 0.08);
     }
     .pillar-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
     .pillar h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
     .pillar p { font-size: 0.875rem; color: var(--muted); line-height: 1.55; }
 
     /* ── HOW IT WORKS ── */
-    .how { padding: 4rem 1.5rem; background: var(--white); }
+    .how { padding: 4rem 1.5rem; background: var(--cream); }
     .steps { display: flex; flex-direction: column; gap: 2rem; max-width: 640px; margin: 0 auto; }
     .step { display: flex; gap: 1.25rem; align-items: flex-start; }
     .step-num {
       flex-shrink: 0; width: 36px; height: 36px;
-      border-radius: 50%; background: var(--dark); color: var(--white);
+      border-radius: 50%; background: linear-gradient(135deg, var(--amber), var(--orange)); color: var(--white);
       font-weight: 700; font-size: 0.875rem;
       display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 18px rgba(194, 65, 12, 0.18);
     }
     .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
     .step p { font-size: 0.875rem; color: var(--muted); }
 
     /* ── COMPARE ── */
-    .compare { background: var(--light); padding: 4rem 1.5rem; }
+    .compare { background: #fff1dc; padding: 4rem 1.5rem; }
     .table-wrap { overflow-x: auto; max-width: 760px; margin: 0 auto; }
     table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
     thead th {
@@ -166,7 +232,7 @@
       font-weight: 700; border-bottom: 2px solid var(--border);
     }
     thead th:first-child { color: var(--muted); }
-    thead th:last-child { color: var(--green); }
+    thead th:last-child { color: var(--orange-dark); }
     tbody td {
       padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--mid);
     }
@@ -174,7 +240,7 @@
     tbody tr:last-child td { border-bottom: none; }
 
     /* ── WHO ── */
-    .who { padding: 4rem 1.5rem; background: var(--white); }
+    .who { padding: 4rem 1.5rem; background: var(--cream); }
     .who-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -184,21 +250,34 @@
       padding: 1.25rem 1.5rem;
       border: 1px solid var(--border); border-radius: 10px;
       font-size: 0.875rem; color: var(--mid);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 6px 18px rgba(124, 45, 18, 0.06);
     }
     .who-card strong { display: block; font-weight: 700; color: var(--dark); margin-bottom: 0.25rem; }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--dark); color: #9ca3af;
+      background: #2a1409; color: #fed7aa;
       padding: 2rem 1.5rem;
       display: flex; flex-wrap: wrap; gap: 1rem;
       align-items: center; justify-content: space-between;
       font-size: 0.8rem;
     }
-    footer a { color: #9ca3af; text-decoration: none; }
+    footer a { color: #fed7aa; text-decoration: none; }
     footer a:hover { color: var(--white); }
 
     [data-lang] { display: none; }
+
+    @media (max-width: 720px) {
+      nav { height: auto; padding: 0.6rem 1rem; gap: 0.75rem; align-items: flex-start; }
+      .nav-links { gap: 0.75rem; flex-wrap: wrap; justify-content: flex-end; }
+      .nav-links a { font-size: 0.82rem; }
+      .hero { padding-top: 3rem; }
+      .hero-brand { flex-direction: column; gap: 0.45rem; margin-bottom: 1rem; }
+      .hero-brand-logo { width: 92px; height: 92px; }
+      .hero-brand-name { font-size: clamp(2.15rem, 12vw, 3.25rem); }
+      .hero p.hero-slogan { font-size: 1rem; margin-bottom: 1.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -223,15 +302,23 @@
   <!-- HERO -->
   <section class="hero">
     <div data-lang="pl">
-      <div class="hero-badge">Aplikacja do zarządzania zapasami</div>
+      <div class="hero-brand" aria-label="Shopping Cat">
+        <img class="hero-brand-logo" src="assets/logo.png" alt="" width="104" height="104" />
+        <span class="hero-brand-name">Shopping Cat</span>
+      </div>
+      <p class="hero-slogan">Zamień swój koszyk zakupowy w prawdziwego kota wśród innych koszyków.</p>
       <h1>Koniec z przepisywaniem<br><span>tej samej listy.</span></h1>
-      <p>Shopping Cat śledzi zapasy w twoim domu w czasie rzeczywistym — widoczne dla wszystkich domowników. Jedno kliknięcie żeby zaktualizować. Wszyscy widzą to od razu.</p>
+      <p>Shopping Cat to wspólny domowy magazyn produktów. Widzisz na żywo, co jest OK, co się kończy i co trzeba kupić. Jedno kliknięcie aktualizuje status, bez przepisywania tej samej listy.</p>
       <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshopping.app">Pobierz z Google Play</a>
     </div>
     <div data-lang="en">
-      <div class="hero-badge">Household inventory app</div>
+      <div class="hero-brand" aria-label="Shopping Cat">
+        <img class="hero-brand-logo" src="assets/logo.png" alt="" width="104" height="104" />
+        <span class="hero-brand-name">Shopping Cat</span>
+      </div>
+      <p class="hero-slogan">Turn your shopping cart into a real cat among other carts.</p>
       <h1>Stop rewriting<br><span>the same list.</span></h1>
-      <p>Shopping Cat keeps a live inventory of your household products — shared in real time with everyone who lives with you. One tap to update. Everyone sees it instantly.</p>
+      <p>Shopping Cat is shared household inventory. See live status for what is stocked, running low, or needs buying. One tap updates everyone, with no rewriting the same list.</p>
       <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshopping.app">Get it on Google Play</a>
     </div>
   </section>
@@ -270,21 +357,23 @@
     </div>
   </section>
 
-  <!-- STATUS DEMO -->
-  <section class="demo">
-    <div data-lang="pl" style="display:contents">
-      <div class="demo-card"><span class="dot dot-green"></span> Mleko — na stanie</div>
-      <div class="demo-card"><span class="dot dot-orange"></span> Chleb — kończy się</div>
-      <div class="demo-card"><span class="dot dot-red"></span> Jajka — do kupienia</div>
-      <div class="demo-card"><span class="dot dot-green"></span> Proszek — na stanie</div>
-      <div class="demo-card"><span class="dot dot-red"></span> Kawa — do kupienia</div>
+  <!-- TILE DEMO -->
+  <section class="tile-demo">
+    <div data-lang="pl">
+      <p class="section-label">Jedno kliknięcie</p>
+      <h2 class="section-title" id="tile-demo-title">Status zmienia się od razu.</h2>
     </div>
-    <div data-lang="en" style="display:contents">
-      <div class="demo-card"><span class="dot dot-green"></span> Milk — stocked</div>
-      <div class="demo-card"><span class="dot dot-orange"></span> Bread — running low</div>
-      <div class="demo-card"><span class="dot dot-red"></span> Eggs — need to buy</div>
-      <div class="demo-card"><span class="dot dot-green"></span> Detergent — stocked</div>
-      <div class="demo-card"><span class="dot dot-red"></span> Coffee — need to buy</div>
+    <div data-lang="en">
+      <p class="section-label">One tap</p>
+      <h2 class="section-title" id="tile-demo-title-en">Status changes instantly.</h2>
+    </div>
+    <div class="tile-demo-shell">
+      <button class="app-tile status-ok" type="button" id="demo-tile" aria-live="polite">
+        <span class="app-tile-emoji" aria-hidden="true">🥛</span>
+        <span class="app-tile-name" data-lang="pl" data-display="flex">Mleko</span>
+        <span class="app-tile-name" data-lang="en" data-display="flex">Milk</span>
+      </button>
+      <p class="tile-demo-caption" id="demo-tile-caption"></p>
     </div>
   </section>
 
@@ -399,11 +488,11 @@
   <!-- FOOTER -->
   <footer>
     <span>&copy; 2026 Shopping Cat</span>
-    <div data-lang="pl" style="display:flex;gap:1.5rem;">
+    <div data-lang="pl" data-display="flex" style="display:flex;gap:1.5rem;">
       <a href="privacy/">Polityka prywatności</a>
       <a href="mailto:hello@shoppingcat.app">Kontakt</a>
     </div>
-    <div data-lang="en" style="display:flex;gap:1.5rem;">
+    <div data-lang="en" data-display="flex" style="display:flex;gap:1.5rem;">
       <a href="privacy/?lang=en">Privacy Policy</a>
       <a href="mailto:hello@shoppingcat.app">Contact</a>
     </div>
@@ -418,7 +507,7 @@
     document.querySelectorAll('[data-lang]').forEach(el => {
       const isContents = el.style.display === 'contents';
       if (el.dataset.lang === lang) {
-        el.style.display = isContents ? 'contents' : 'block';
+        el.style.display = el.dataset.display || (isContents ? 'contents' : 'block');
       } else {
         el.style.display = 'none';
       }
@@ -433,6 +522,59 @@
       toggle.href = '?lang=en';
       toggle.textContent = 'EN';
       document.title = 'Shopping Cat — Domowy magazyn produktow dla calego domu';
+    }
+
+    const tile = document.getElementById('demo-tile');
+    const caption = document.getElementById('demo-tile-caption');
+    const demoStatuses = [
+      {
+        className: 'status-ok',
+        pl: 'OK',
+        en: 'OK',
+      },
+      {
+        className: 'status-running-low',
+        pl: 'Kończy się',
+        en: 'Running low',
+      },
+      {
+        className: 'status-need-to-buy',
+        pl: 'Trzeba kupić',
+        en: 'Need to buy',
+      },
+    ];
+    let demoStatusIndex = 0;
+    let manualPauseUntil = 0;
+
+    const renderDemoStatus = () => {
+      const current = demoStatuses[demoStatusIndex];
+      tile.classList.remove(...demoStatuses.map(status => status.className));
+      tile.classList.add(current.className);
+      caption.textContent = current[lang];
+      tile.setAttribute('aria-label', `${lang === 'pl' ? 'Mleko' : 'Milk'}: ${current[lang]}`);
+    };
+
+    const cycleDemoStatus = () => {
+      demoStatusIndex = (demoStatusIndex + 1) % demoStatuses.length;
+      renderDemoStatus();
+    };
+
+    if (tile && caption) {
+      renderDemoStatus();
+
+      tile.addEventListener('click', () => {
+        cycleDemoStatus();
+        manualPauseUntil = Date.now() + 7000;
+      });
+      tile.addEventListener('pointerdown', () => tile.classList.add('is-pressed'));
+      ['pointerup', 'pointercancel', 'pointerleave'].forEach(eventName => {
+        tile.addEventListener(eventName, () => tile.classList.remove('is-pressed'));
+      });
+
+      window.setInterval(() => {
+        if (Date.now() < manualPauseUntil) return;
+        cycleDemoStatus();
+      }, 3200);
     }
   </script>
 </body>
