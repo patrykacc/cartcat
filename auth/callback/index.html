@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Konto potwierdzone - Shopping Cat</title>
+  <link rel="canonical" href="https://shoppingcat.app/auth/callback/" />
+  <link rel="icon" type="image/png" href="../../assets/logo.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #22c55e;
+      --orange: #f97316;
+      --orange-dark: #c2410c;
+      --dark: #24130b;
+      --muted: #6b7280;
+      --cream: #fffdf8;
+      --border: #fed7aa;
+      --white: #ffffff;
+    }
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: var(--cream);
+      color: var(--dark);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+    }
+    main {
+      width: min(100%, 520px);
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 28px;
+    }
+    img {
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: 18px;
+    }
+    .brand {
+      margin: 0 0 6px;
+      color: var(--orange-dark);
+      font-size: 14px;
+      font-weight: 800;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    a {
+      color: var(--orange-dark);
+      font-weight: 700;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+    }
+    .secondary {
+      background: transparent;
+      color: var(--orange-dark);
+      border: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="../../assets/logo.png" alt="" />
+    <p class="brand">Shopping Cat</p>
+    <h1>Konto potwierdzone</h1>
+    <p id="message">Za chwile wrocisz do aplikacji. Jesli korzystasz z komputera, mozesz przejsc na strone Shopping Cat.</p>
+    <div class="actions">
+      <a id="open-app" class="button" href="com.homeshopping.app://">Otworz aplikacje</a>
+      <a class="button secondary" href="https://shoppingcat.app/">Strona Shopping Cat</a>
+    </div>
+  </main>
+  <script>
+    (function () {
+      var callbackPayload = window.location.search + window.location.hash;
+      var appUrl = 'com.homeshopping.app://' + callbackPayload;
+      var openAppLink = document.getElementById('open-app');
+      var message = document.getElementById('message');
+
+      openAppLink.setAttribute('href', appUrl);
+
+      if (/Android/i.test(navigator.userAgent)) {
+        message.textContent = 'Za chwile wrocisz do aplikacji. Jesli nic sie nie stanie, nacisnij Otworz aplikacje.';
+        window.setTimeout(function () {
+          window.location.href = appUrl;
+        }, 250);
+      }
+    }());
+  </script>
+</body>
+</html>
