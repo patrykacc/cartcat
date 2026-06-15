@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account - Shopping Cat</title>
+  <link rel="canonical" href="https://shoppingcat.app/delete-account/" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange-dark: #c2410c;
+      --dark: #24130b;
+      --mid: #57331f;
+      --muted: #8a5a3b;
+      --border: #fed7aa;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(160deg, #fff7ed 0%, #fffbf4 52%, #fff1dc 100%);
+      color: var(--dark);
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+    .top-bar, .container { max-width: 760px; margin-left: auto; margin-right: auto; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .back, .lang-toggle, a {
+      color: var(--orange-dark);
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .back { display: inline-flex; align-items: center; gap: 0.5rem; }
+    .back img { width: 32px; height: 32px; }
+    .lang-toggle {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.72);
+      padding: 0.25rem 0.6rem;
+      font-size: 0.8rem;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 42px rgba(124, 45, 18, 0.12);
+    }
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    h1 { font-size: 1.85rem; line-height: 1.2; }
+    header p, p { color: var(--mid); margin-top: 0.35rem; }
+    h2 { font-size: 1.1rem; margin: 2rem 0 0.6rem; }
+    ul, ol { margin: 0.5rem 0 0.75rem 1.5rem; color: var(--mid); }
+    li { margin-bottom: 0.35rem; }
+    .box {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: #fff7ed;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    [data-lang] { display: none; }
+    @media (max-width: 640px) {
+      body { padding: 1rem; }
+      .container { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a class="back" href="../">
+      <span>&#8592;</span>
+      <img src="../assets/logo.png" alt="" width="32" height="32" />
+      <span>Shopping Cat</span>
+    </a>
+    <a class="lang-toggle" id="lang-link" href="?lang=en">EN</a>
+  </div>
+
+  <main class="container">
+    <article data-lang="pl">
+      <header>
+        <h1>Usuniecie konta</h1>
+        <p>Jak poprosic o usuniecie konta Shopping Cat i powiazanych danych.</p>
+      </header>
+
+      <h2>Jak zlozyc prosbe</h2>
+      <ol>
+        <li>Napisz z adresu e-mail uzywanego w Shopping Cat na <a href="mailto:hello@shoppingcat.app?subject=Usuniecie%20konta%20Shopping%20Cat">hello@shoppingcat.app</a>.</li>
+        <li>W temacie wpisz: <strong>Usuniecie konta Shopping Cat</strong>.</li>
+        <li>Podaj adres e-mail konta i potwierdz, ze chcesz usunac konto oraz dane w chmurze.</li>
+      </ol>
+
+      <h2>Co usuwamy</h2>
+      <ul>
+        <li>Profil konta i dane identyfikacyjne, ktore kontrolujemy.</li>
+        <li>Listy, produkty, kategorie, statusy, notatki i zdjecia produktow w chmurze, gdy jestes wlascicielem lub jedynym uzytkownikiem danych.</li>
+        <li>Tokeny push i ustawienia powiadomien.</li>
+        <li>Powiazane dane subskrypcji w mirrorze Supabase, o ile nie musimy zachowac minimalnych danych rozliczeniowych lub bezpieczenstwa.</li>
+      </ul>
+
+      <h2>Wazne informacje o subskrypcji</h2>
+      <p>Usuniecie konta Shopping Cat nie anuluje automatycznie subskrypcji Google Play. Subskrypcje nalezy anulowac w Google Play.</p>
+
+      <h2>Weryfikacja i czas realizacji</h2>
+      <p>Mozemy poprosic o potwierdzenie tozsamosci przed usunieciem danych. Staramy sie obsluzyc prosby w ciagu 30 dni, chyba ze prawo, bezpieczenstwo albo rozliczenia wymagaja dluzszego przechowywania.</p>
+
+      <div class="box">
+        <p>Kontakt: <a href="mailto:hello@shoppingcat.app">hello@shoppingcat.app</a></p>
+      </div>
+    </article>
+
+    <article data-lang="en">
+      <header>
+        <h1>Account Deletion</h1>
+        <p>How to request deletion of your Shopping Cat account and related data.</p>
+      </header>
+
+      <h2>How to Request Deletion</h2>
+      <ol>
+        <li>Email <a href="mailto:hello@shoppingcat.app?subject=Delete%20Shopping%20Cat%20account">hello@shoppingcat.app</a> from the email address used for your Shopping Cat account.</li>
+        <li>Use the subject: <strong>Delete Shopping Cat account</strong>.</li>
+        <li>Include your account email and confirm that you want your account and cloud data deleted.</li>
+      </ol>
+
+      <h2>What We Delete</h2>
+      <ul>
+        <li>Your account profile and personal identifiers that we control.</li>
+        <li>Cloud lists, products, categories, statuses, notes, and product photos where you own the data or are the only remaining user.</li>
+        <li>Push tokens and notification preferences.</li>
+        <li>Related Supabase subscription mirror data unless we must retain minimal billing, fraud-prevention, security, or legal records.</li>
+      </ul>
+
+      <h2>Subscription Note</h2>
+      <p>Deleting your Shopping Cat account does not automatically cancel your Google Play subscription. Cancel subscriptions in Google Play.</p>
+
+      <h2>Verification and Timing</h2>
+      <p>We may verify your identity before deleting data. We aim to handle requests within 30 days unless legal, security, or billing obligations require longer retention.</p>
+
+      <div class="box">
+        <p>Contact: <a href="mailto:hello@shoppingcat.app">hello@shoppingcat.app</a></p>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const lang = params.get('lang') === 'en' ? 'en' : 'pl';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+    });
+    const toggle = document.getElementById('lang-link');
+    if (lang === 'en') {
+      toggle.href = '?lang=pl';
+      toggle.textContent = 'PL';
+      document.title = 'Delete Account - Shopping Cat';
+    } else {
+      toggle.href = '?lang=en';
+      toggle.textContent = 'EN';
+      document.title = 'Usuniecie konta - Shopping Cat';
+    }
+  </script>
+</body>
+</html>
