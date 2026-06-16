@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shopping Cat — Domowy magazyn produktow dla calego domu</title>
+  <meta name="description" content="Shopping Cat to proste listy powtarzalnych zakupów. Dodaj produkty raz, zmieniaj status jednym stuknięciem i kupuj z widoku Brakujące." />
+  <title>Shopping Cat — proste listy powtarzalnych zakupów</title>
   <link rel="canonical" href="https://shoppingcat.app/" />
   <link rel="icon" type="image/png" href="assets/logo.png" />
   <style>
@@ -215,6 +216,13 @@
     .pillar-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
     .pillar h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
     .pillar p { font-size: 0.875rem; color: var(--muted); line-height: 1.55; }
+    .feature-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-left: 0.35rem; padding: 0.12rem 0.42rem;
+      border-radius: 999px; background: #ffedd5; color: var(--orange-dark);
+      font-size: 0.68rem; font-weight: 800; text-transform: uppercase;
+      vertical-align: 0.08rem;
+    }
 
     /* ── HOW IT WORKS ── */
     .how { padding: 4rem 1.5rem; background: var(--cream); }
@@ -246,8 +254,28 @@
     tbody td:first-child { color: var(--muted); }
     tbody tr:last-child td { border-bottom: none; }
 
+    /* ── MISSION ── */
+    .mission { padding: 4rem 1.5rem; background: var(--cream); }
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem; max-width: 900px; margin: 0 auto;
+    }
+    .mission-block {
+      border-left: 4px solid var(--orange);
+      padding: 0.25rem 0 0.25rem 1.25rem;
+    }
+    .mission-block h3 {
+      font-size: 1.1rem; font-weight: 800;
+      color: var(--dark); margin-bottom: 0.55rem;
+    }
+    .mission-block p {
+      font-size: 0.95rem; color: var(--mid);
+      line-height: 1.7;
+    }
+
     /* ── WHO ── */
-    .who { padding: 4rem 1.5rem; background: var(--cream); }
+    .who { padding: 4rem 1.5rem; background: #fff6e8; }
     .who-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -297,12 +325,14 @@
       <span>Shopping Cat</span>
     </a>
     <div class="nav-links">
-      <a data-lang="pl" href="#jak-dziala">Jak to działa</a>
+      <a data-lang="pl" href="#funkcje">Funkcje</a>
+      <a data-lang="pl" href="#jak-dziala">Jak działa</a>
       <a data-lang="pl" href="#porownanie">Dlaczego my</a>
-      <a data-lang="pl" href="privacy/">Polityka prywatności</a>
+      <a data-lang="pl" href="privacy/">Prywatność</a>
+      <a data-lang="en" href="#funkcje">Features</a>
       <a data-lang="en" href="#how">How it works</a>
       <a data-lang="en" href="#compare">Why us</a>
-      <a data-lang="en" href="privacy/?lang=en">Privacy Policy</a>
+      <a data-lang="en" href="privacy/?lang=en">Privacy</a>
       <a id="lang-link" href="?lang=en" style="font-weight:600;">EN</a>
     </div>
   </nav>
@@ -314,9 +344,9 @@
         <img class="hero-brand-logo" src="assets/logo.png" alt="" width="104" height="104" />
         <span class="hero-brand-name">Shopping Cat</span>
       </div>
-      <p class="hero-slogan">Zamień swój koszyk zakupowy w prawdziwego kota wśród innych koszyków.</p>
-      <h1>Koniec z przepisywaniem<br><span>tej samej listy.</span></h1>
-      <p>Shopping Cat to wspólny domowy magazyn produktów. Widzisz na żywo, co jest OK, co się kończy i co trzeba kupić. Jedno kliknięcie aktualizuje status, bez przepisywania tej samej listy.</p>
+      <p class="hero-slogan">Proste i przyjemne rozwiązanie dla powtarzalnych zakupów.</p>
+      <h1>Dom, o który dba<br><span>każdy domownik.</span></h1>
+      <p>Dodaj produkty raz, a potem oznaczaj ich status jednym stuknięciem: OK, Kończy się albo Trzeba kupić. W sklepie otwierasz Brakujące i widzisz tylko to, co trzeba dokupić.</p>
       <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshopping.app">Pobierz z Google Play</a>
     </div>
     <div data-lang="en">
@@ -324,9 +354,9 @@
         <img class="hero-brand-logo" src="assets/logo.png" alt="" width="104" height="104" />
         <span class="hero-brand-name">Shopping Cat</span>
       </div>
-      <p class="hero-slogan">Turn your shopping cart into a real cat among other carts.</p>
-      <h1>Stop rewriting<br><span>the same list.</span></h1>
-      <p>Shopping Cat is shared household inventory. See live status for what is stocked, running low, or needs buying. One tap updates everyone, with no rewriting the same list.</p>
+      <p class="hero-slogan">A shopping list should not start from scratch every time.</p>
+      <h1>Recurring stock lists.<br><span>Tap status and shop without guessing.</span></h1>
+      <p>Create lists for home, the garage, the car, the office, trips, or other places you manage. Add recurring products once, then update each status with one tap: OK, Running low, or Need to buy.</p>
       <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshopping.app">Get it on Google Play</a>
     </div>
   </section>
@@ -343,24 +373,24 @@
     </div>
     <div class="screenshots-row">
       <div class="phone-wrap">
-        <img src="screenshots/screenshot_pro_main.png" alt="Household inventory main view" loading="lazy" />
-        <p data-lang="pl" class="phone-caption">Pełny przegląd zapasów</p>
-        <p data-lang="en" class="phone-caption">Full inventory overview</p>
+        <img src="screenshots/screenshot_pro_main.png" alt="Recurring product list main view" loading="lazy" />
+        <p data-lang="pl" class="phone-caption">Stała lista powtarzalnych produktów</p>
+        <p data-lang="en" class="phone-caption">Recurring products, current status</p>
       </div>
       <div class="phone-wrap">
         <img src="screenshots/screenshot_pro_cart.png" alt="Shopping mode" loading="lazy" />
-        <p data-lang="pl" class="phone-caption">Tryb zakupów — tylko braki</p>
-        <p data-lang="en" class="phone-caption">Shopping mode — needs only</p>
+        <p data-lang="pl" class="phone-caption">Tryb sklepowy pokazuje tylko produkty wymagające uzupełnienia</p>
+        <p data-lang="en" class="phone-caption">Shopping view with only missing items</p>
       </div>
       <div class="phone-wrap">
-        <img src="screenshots/screenshot_pro_menu.png" alt="Household menu" loading="lazy" />
-        <p data-lang="pl" class="phone-caption">Wspólne gospodarstwo domowe</p>
-        <p data-lang="en" class="phone-caption">Shared household</p>
+        <img src="screenshots/screenshot_pro_menu.png" alt="Shared lists menu" loading="lazy" />
+        <p data-lang="pl" class="phone-caption">Wspólne listy w czasie rzeczywistym</p>
+        <p data-lang="en" class="phone-caption">Shared lists in real time</p>
       </div>
       <div class="phone-wrap">
-        <img src="screenshots/screenshot_pro_edit.png" alt="Edit product" loading="lazy" />
-        <p data-lang="pl" class="phone-caption">Edytuj produkty w sekundę</p>
-        <p data-lang="en" class="phone-caption">Edit products in seconds</p>
+        <img src="screenshots/screenshot_pro_edit.png" alt="Product details with photos and notes" loading="lazy" />
+        <p data-lang="pl" class="phone-caption">Zdjęcia, notatki i szczegóły produktu</p>
+        <p data-lang="en" class="phone-caption">Photos, notes, and product details</p>
       </div>
     </div>
   </section>
@@ -369,11 +399,11 @@
   <section class="tile-demo">
     <div data-lang="pl">
       <p class="section-label">Jedno kliknięcie</p>
-      <h2 class="section-title" id="tile-demo-title">Status zmienia się od razu.</h2>
+      <h2 class="section-title" id="tile-demo-title">OK → Kończy się → Trzeba kupić → OK.</h2>
     </div>
     <div data-lang="en">
       <p class="section-label">One tap</p>
-      <h2 class="section-title" id="tile-demo-title-en">Status changes instantly.</h2>
+      <h2 class="section-title" id="tile-demo-title-en">OK → Running low → Need to buy → OK.</h2>
     </div>
     <div class="tile-demo-shell">
       <button class="app-tile status-ok" type="button" id="demo-tile" aria-live="polite">
@@ -388,23 +418,27 @@
   <!-- PILLARS -->
   <section class="pillars" id="funkcje">
     <div data-lang="pl">
-      <p class="section-label">Główna idea</p>
-      <h2 class="section-title">Zbudowana wokół jednego kliknięcia.</h2>
+      <p class="section-label">Funkcje</p>
+      <h2 class="section-title">Stała lista, aktualny status, mniej dopytywania.</h2>
       <div class="pillars-grid">
-        <div class="pillar"><div class="pillar-icon">👁️</div><h3>Widok w czasie rzeczywistym</h3><p>Każdy domownik widzi co jest na stanie i czego brakuje — na pierwszy rzut oka, natychmiast.</p></div>
-        <div class="pillar"><div class="pillar-icon">👆</div><h3>Kliknij, nie pisz</h3><p>Jedno kliknięcie zmienia stan produktu: OK → kończy się → do kupienia. Zero pisania po konfiguracji.</p></div>
-        <div class="pillar"><div class="pillar-icon">🔁</div><h3>Te same produkty, aktualny stan</h3><p>Stworzona dla domów, które kupują to samo co tydzień. Zmienia się tylko to, ile zostało.</p></div>
-        <div class="pillar"><div class="pillar-icon">🏠</div><h3>Wspólna od początku</h3><p>Nie lista osobista z przyciskiem udostępniania. Narzędzie domowe od pierwszego dnia. Dołącz kodem 6-cyfrowym, widzisz wszystko od razu.</p></div>
+        <div class="pillar"><div class="pillar-icon">👆</div><h3>Trzy statusy, jedno stuknięcie</h3><p>Każdy produkt ma prosty stan: OK, Kończy się albo Trzeba kupić. Codzienna obsługa nie wymaga przepisywania listy.</p></div>
+        <div class="pillar"><div class="pillar-icon">🛒</div><h3>Brakujące w sklepie</h3><p>Widzisz tylko produkty do uzupełnienia. Po zakupie stukasz produkt na OK, a on znika z aktywnego widoku.</p></div>
+        <div class="pillar"><div class="pillar-icon">🔄</div><h3>Wspólne listy w czasie rzeczywistym</h3><p>Udostępnij listę rodzinie lub innym osobom. Zmiany statusu pojawiają się u wszystkich od razu.</p></div>
+        <div class="pillar"><div class="pillar-icon">🔔</div><h3>Przypomnienia o ważnych produktach <span class="feature-badge">Pro</span></h3><p>Oznacz ważny produkt i ustaw przypomnienie, gdy jest w statusie Trzeba kupić.</p></div>
+        <div class="pillar"><div class="pillar-icon">📷</div><h3>Zdjęcia produktów <span class="feature-badge">Pro</span></h3><p>Dodaj zdjęcie z aparatu lub galerii, gdy liczy się konkretna marka, rozmiar albo wariant.</p></div>
+        <div class="pillar"><div class="pillar-icon">📝</div><h3>Notatki do produktów</h3><p>Zapisz markę, pojemność, ilość lub inne szczegóły, które pomagają kupić dokładnie to, o co chodzi.</p></div>
       </div>
     </div>
     <div data-lang="en">
-      <p class="section-label">Core idea</p>
-      <h2 class="section-title">Built around one tap.</h2>
+      <p class="section-label">Features</p>
+      <h2 class="section-title">Persistent lists, current status, fewer messages.</h2>
       <div class="pillars-grid">
-        <div class="pillar"><div class="pillar-icon">👁️</div><h3>Real-time shared view</h3><p>Every household member sees what's stocked and what's running low — at a glance, in real time.</p></div>
-        <div class="pillar"><div class="pillar-icon">👆</div><h3>Tap, don't type</h3><p>One tap cycles a product through three states: OK → running low → need to buy. Zero typing after setup.</p></div>
-        <div class="pillar"><div class="pillar-icon">🔁</div><h3>Same products, fresh status</h3><p>Built for how households actually shop — the same items, week after week. Only the status changes.</p></div>
-        <div class="pillar"><div class="pillar-icon">🏠</div><h3>Shared by default</h3><p>Not a personal list with a share button. A household tool from day one. Join with a 6-digit code, see everything instantly.</p></div>
+        <div class="pillar"><div class="pillar-icon">👆</div><h3>Three states, one tap</h3><p>Each product has a simple status: OK, Running low, or Need to buy. Daily use does not mean rewriting the list.</p></div>
+        <div class="pillar"><div class="pillar-icon">🛒</div><h3>Shopping view</h3><p>See only products that need restocking. Already in the cart? Tap it back to OK and it leaves the active view.</p></div>
+        <div class="pillar"><div class="pillar-icon">🔄</div><h3>Shared lists in real time</h3><p>Share a list with family, roommates, coworkers, or anyone who helps restock it. Status changes appear instantly.</p></div>
+        <div class="pillar"><div class="pillar-icon">🔔</div><h3>Important-product reminders <span class="feature-badge">Pro</span></h3><p>Mark a product as important and get a reminder when it is currently Need to buy.</p></div>
+        <div class="pillar"><div class="pillar-icon">📷</div><h3>Product photos <span class="feature-badge">Pro</span></h3><p>Add a camera or gallery photo when the exact brand, size, or variant matters.</p></div>
+        <div class="pillar"><div class="pillar-icon">📝</div><h3>Product notes</h3><p>Save brand, size, quantity, or other details so the next shopper knows what to pick.</p></div>
       </div>
     </div>
   </section>
@@ -412,23 +446,25 @@
   <!-- HOW IT WORKS -->
   <section class="how" id="jak-dziala">
     <div data-lang="pl">
-      <p class="section-label">Konfiguracja</p>
+      <p class="section-label">Jak działa</p>
       <h2 class="section-title">Jak to działa</h2>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div><h3>Utwórz dom</h3><p>Zarejestruj się, nazwij swój dom i otrzymaj 6-cyfrowy kod do udostępnienia.</p></div></div>
-        <div class="step"><div class="step-num">2</div><div><h3>Dodaj produkty raz</h3><p>Zbuduj inwentarz swojego domu — mleko, chleb, środki czystości. Robisz to tylko raz.</p></div></div>
-        <div class="step"><div class="step-num">3</div><div><h3>Zaproś domowników</h3><p>Podziel się kodem. Wszyscy dołączają i od razu widzą ten sam, aktualny inwentarz.</p></div></div>
-        <div class="step"><div class="step-num">4</div><div><h3>Klikaj żeby aktualizować — na zawsze</h3><p>Mleko się kończy? Jedno kliknięcie. Kupiłeś jajka? Jedno kliknięcie. Widok wszystkich aktualizuje się w czasie rzeczywistym — bez SMS-ów.</p></div></div>
+        <div class="step"><div class="step-num">1</div><div><h3>Utwórz stałą listę</h3><p>Załóż listę dla domu, garażu, auta, biura, wyjazdu albo innego miejsca, które regularnie uzupełniasz.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div><h3>Dodaj produkty raz</h3><p>Wpisz rzeczy kupowane regularnie: mleko, chleb, kawę, środki czystości, płyn do spryskiwaczy lub zapasy biurowe.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3>Stukaj status</h3><p>Gdy coś się kończy, zmień status jednym stuknięciem. Gdy trzeba kupić, produkt zostaje widoczny do czasu zakupów.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3>W sklepie użyj Brakujące</h3><p>Widok pokazuje tylko produkty do uzupełnienia. Kupione rzeczy stukasz na OK i idziesz dalej.</p></div></div>
+        <div class="step"><div class="step-num">5</div><div><h3>Udostępnij listę w Pro</h3><p>Wyślij 5-znakowy kod zaproszenia. Zaproszone osoby widzą te same statusy w czasie rzeczywistym.</p></div></div>
       </div>
     </div>
     <div data-lang="en" id="how">
-      <p class="section-label">Setup</p>
+      <p class="section-label">How it works</p>
       <h2 class="section-title">How it works</h2>
       <div class="steps">
-        <div class="step"><div class="step-num">1</div><div><h3>Create a household</h3><p>Sign up, name your household, and get a shareable 6-digit code.</p></div></div>
-        <div class="step"><div class="step-num">2</div><div><h3>Add your products once</h3><p>Build your household's inventory — milk, bread, detergent, whatever you buy regularly. You do this once.</p></div></div>
-        <div class="step"><div class="step-num">3</div><div><h3>Invite your household</h3><p>Share the 6-digit code. Everyone joins and immediately sees the same live inventory.</p></div></div>
-        <div class="step"><div class="step-num">4</div><div><h3>Tap to update, forever</h3><p>Running low on milk? One tap. Bought eggs? One tap. Everyone's view updates in real time — no messages needed.</p></div></div>
+        <div class="step"><div class="step-num">1</div><div><h3>Create a recurring list</h3><p>Make a list for home, the garage, the car, the office, a trip, or another place you restock regularly.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div><h3>Add products once</h3><p>Add the things you keep buying: milk, bread, coffee, detergent, washer fluid, or office paper towels.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3>Tap the status</h3><p>When something is running low, update it with one tap. When it needs buying, it stays visible for the next trip.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3>Use the shopping view</h3><p>See only products that need restocking. Tap bought items back to OK and keep moving through the store.</p></div></div>
+        <div class="step"><div class="step-num">5</div><div><h3>Share the list in Pro</h3><p>Send a 5-character invite code. Invited people see the same product statuses in real time.</p></div></div>
       </div>
     </div>
   </section>
@@ -442,11 +478,12 @@
         <table>
           <thead><tr><th>Zwykłe aplikacje do list</th><th>Shopping Cat</th></tr></thead>
           <tbody>
-            <tr><td>Nowa lista przed każdym zakupem</td><td>Produkty zostają — zmieniasz tylko stan</td></tr>
-            <tr><td>Odhaczasz i wyrzucasz listę</td><td>Stany zmieniają się w kółko — lista nigdy nie jest "skończona"</td></tr>
-            <tr><td>Dużo pisania podczas codziennego użycia</td><td>Jedno kliknięcie, zero pisania po konfiguracji</td></tr>
-            <tr><td>Zaprojektowana dla jednej osoby, udostępnianie doklejone na końcu</td><td>Wspólny widok domowy od pierwszego dnia</td></tr>
-            <tr><td>Zoptymalizowana pod kątem zakupów</td><td>Zoptymalizowana pod kątem bieżącej świadomości domowej</td></tr>
+            <tr><td>Jednorazowa lista przed każdym wyjściem</td><td>Stała lista produktów, na której zmieniasz tylko status</td></tr>
+            <tr><td>Odhaczasz i wyrzucasz listę</td><td>Lista zostaje, a statusy krążą między OK, Kończy się i Trzeba kupić</td></tr>
+            <tr><td>W sklepie czytasz całą listę od nowa</td><td>Brakujące pokazuje tylko aktywne produkty do kupienia</td></tr>
+            <tr><td>Udostępnianie często jest dodatkiem</td><td>W Pro wspólna lista aktualizuje się u wszystkich w czasie rzeczywistym</td></tr>
+            <tr><td>Notatki i zdjęcia łatwo giną poza listą</td><td>Szczegóły, notatki i zdjęcia są przy konkretnym produkcie</td></tr>
+            <tr><td>Dwie osoby mogą kupić to samo</td><td>Aktualny status pomaga ograniczyć dopytywanie i podwójne zakupy</td></tr>
           </tbody>
         </table>
       </div>
@@ -458,13 +495,46 @@
         <table>
           <thead><tr><th>Traditional list apps</th><th>Shopping Cat</th></tr></thead>
           <tbody>
-            <tr><td>Write a new list before every trip</td><td>Products persist — just update their status</td></tr>
-            <tr><td>Check off items, discard the list</td><td>Statuses cycle continuously — the list is never "done"</td></tr>
-            <tr><td>Typing-heavy during daily use</td><td>One tap, zero typing after setup</td></tr>
-            <tr><td>Designed for one person, sharing bolted on</td><td>Shared household view from day one</td></tr>
-            <tr><td>Optimised for the shopping trip</td><td>Optimised for ongoing household awareness</td></tr>
+            <tr><td>Disposable list before each trip</td><td>Persistent stock list where only the status changes</td></tr>
+            <tr><td>Check off items and discard the list</td><td>The list stays, and statuses keep cycling through OK, Running low, and Need to buy</td></tr>
+            <tr><td>Read the whole list again in the store</td><td>The shopping view shows only active missing items</td></tr>
+            <tr><td>Sharing is often an add-on</td><td>In Pro, shared lists update for everyone in real time</td></tr>
+            <tr><td>Notes and photos live outside the list</td><td>Details, notes, and photos stay attached to the product</td></tr>
+            <tr><td>Two people can buy the same thing</td><td>Current status helps reduce asking and duplicate purchases</td></tr>
           </tbody>
         </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission" id="misja">
+    <div data-lang="pl">
+      <p class="section-label">Więcej niż lista zakupów</p>
+      <h2 class="section-title">Zakupy nie muszą być obowiązkiem jednej osoby.</h2>
+      <div class="mission-grid">
+        <div class="mission-block">
+          <h3>Więcej niż lista zakupów</h3>
+          <p>Gdy cały dom widzi to samo, znika ciągłe dopytywanie „mamy jeszcze...?” i sprawdzanie po raz dziesiąty, czego brakuje. Odpowiedzialność rozkłada się na wszystkich domowników, maleje napięcie i ubywa cichych pretensji o to, że znów ktoś o czymś zapomniał.</p>
+        </div>
+        <div class="mission-block">
+          <h3>Nasza misja</h3>
+          <p>Shopping Cat to pomysł na to, by codzienne, czasochłonne obowiązki łączyły domowników, zamiast ich obciążać. Drobna zmiana w myśleniu o zakupach i tym, co mamy w domu, może wnieść do rodzinnego życia więcej spokoju i harmonii.</p>
+        </div>
+      </div>
+    </div>
+    <div data-lang="en">
+      <p class="section-label">More than a shopping list</p>
+      <h2 class="section-title">Restocking should not depend on one person's memory.</h2>
+      <div class="mission-grid">
+        <div class="mission-block">
+          <h3>More than a shopping list</h3>
+          <p>When everyone sees the same product status, there are fewer “do we still have...?” messages and fewer last-minute checks. Responsibility is shared, duplicate purchases happen less often, and everyday restocking becomes calmer.</p>
+        </div>
+        <div class="mission-block">
+          <h3>Our mission</h3>
+          <p>Shopping Cat is built around a simple idea: recurring chores should connect people instead of weighing on one person. A small change in how a home tracks what it has and what it needs can make daily life more peaceful.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -473,22 +543,22 @@
   <section class="who" id="dla-kogo">
     <div data-lang="pl">
       <p class="section-label">Dla kogo</p>
-      <h2 class="section-title">Stworzona dla wspólnego życia.</h2>
+      <h2 class="section-title">Dla domu i innych miejsc, które trzeba uzupełniać.</h2>
       <div class="who-grid">
-        <div class="who-card"><strong>Rodziny</strong>Pary, rodzice z dziećmi, wielopokoleniowe domy.</div>
-        <div class="who-card"><strong>Pary</strong>Mieszkacie razem i robicie zakupy — bez "czy kupiłeś mleko?"</div>
-        <div class="who-card"><strong>Współlokatorzy</strong>Akademiki i mieszkania dzielone — wszyscy na bieżąco.</div>
-        <div class="who-card"><strong>Inne przestrzenie</strong>Kuchnie biurowe, domki wakacyjne, placówki opiekuńcze.</div>
+        <div class="who-card"><strong>Dom i rodzina</strong>Stałe produkty, które powinny być pod kontrolą wszystkich domowników.</div>
+        <div class="who-card"><strong>Pary i współlokatorzy</strong>Wspólne zakupy bez ciągłego pytania, czy coś już jest kupione.</div>
+        <div class="who-card"><strong>Biuro i wspólne kuchnie</strong>Kawa, herbata, ręczniki papierowe i inne zapasy, które kończą się regularnie.</div>
+        <div class="who-card"><strong>Auto, garaż i wyjazdy</strong>Osobne listy dla miejsc i sytuacji, których nie chcesz odtwarzać od zera.</div>
       </div>
     </div>
     <div data-lang="en">
       <p class="section-label">Who it's for</p>
-      <h2 class="section-title">Built for shared living.</h2>
+      <h2 class="section-title">For home and every recurring supply list around it.</h2>
       <div class="who-grid">
-        <div class="who-card"><strong>Families</strong>Couples, parents with kids, multi-generational homes.</div>
-        <div class="who-card"><strong>Couples</strong>Living together, shopping together — without the "did you buy milk?" texts.</div>
-        <div class="who-card"><strong>Roommates</strong>Student housing or shared flats — everyone on the same page.</div>
-        <div class="who-card"><strong>Shared spaces</strong>Office kitchens, vacation homes, care facilities.</div>
+        <div class="who-card"><strong>Home and family</strong>Recurring products that should not depend on one person's memory.</div>
+        <div class="who-card"><strong>Couples and roommates</strong>Shared shopping without asking whether something was already bought.</div>
+        <div class="who-card"><strong>Offices and shared kitchens</strong>Coffee, tea, paper towels, and supplies that run out again and again.</div>
+        <div class="who-card"><strong>Car, garage, and trips</strong>Separate lists for places and situations you do not want to recreate from scratch.</div>
       </div>
     </div>
   </section>
@@ -497,11 +567,11 @@
   <footer>
     <span>&copy; 2026 Shopping Cat</span>
     <div data-lang="pl" data-display="flex" style="display:flex;gap:1.5rem;">
-      <a href="privacy/">Polityka prywatności</a>
+      <a href="privacy/">Prywatność</a>
       <a href="mailto:hello@shoppingcat.app">Kontakt</a>
     </div>
     <div data-lang="en" data-display="flex" style="display:flex;gap:1.5rem;">
-      <a href="privacy/?lang=en">Privacy Policy</a>
+      <a href="privacy/?lang=en">Privacy</a>
       <a href="mailto:hello@shoppingcat.app">Contact</a>
     </div>
   </footer>
@@ -525,11 +595,11 @@
     if (lang === 'en') {
       toggle.href = '?lang=pl';
       toggle.textContent = 'PL';
-      document.title = 'Shopping Cat — Household inventory for shared living';
+      document.title = 'Shopping Cat — recurring stock lists';
     } else {
       toggle.href = '?lang=en';
       toggle.textContent = 'EN';
-      document.title = 'Shopping Cat — Domowy magazyn produktow dla calego domu';
+      document.title = 'Shopping Cat — proste listy powtarzalnych zakupów';
     }
 
     const tile = document.getElementById('demo-tile');
