@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Shopping Cat is a recurring stock-list app. Add products once, tap their status, and shop from a focused list of what needs restocking." />
-  <title>Shopping Cat: Recurring Stock Lists</title>
+  <meta name="description" content="Shopping Cat is a persistent stock-list app. Add recurring products once and tap when to buy them: OK, Buy sometime, or Buy now." />
+  <title>Shopping Cat: Persistent Stock Lists</title>
   <link rel="canonical" href="https://shoppingcat.app/en/" />
   <link rel="alternate" hreflang="pl" href="https://shoppingcat.app/" />
   <link rel="alternate" hreflang="en" href="https://shoppingcat.app/en/" />
@@ -13,15 +13,15 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Shopping Cat" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:title" content="Shopping Cat: Recurring Stock Lists" />
-  <meta property="og:description" content="Add recurring products once, tap OK, Running low, or Need to buy, and shop from a focused restocking view." />
+  <meta property="og:title" content="Shopping Cat: Persistent Stock Lists" />
+  <meta property="og:description" content="Keep persistent stock lists and tap when to buy each product: OK, Buy sometime, or Buy now." />
   <meta property="og:url" content="https://shoppingcat.app/en/" />
   <meta property="og:image" content="https://shoppingcat.app/assets/social-card-en.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Shopping Cat: Recurring Stock Lists" />
-  <meta name="twitter:description" content="Add products once, tap their status, and shop from a focused list of what needs restocking." />
+  <meta name="twitter:title" content="Shopping Cat: Persistent Stock Lists" />
+  <meta name="twitter:description" content="Add recurring products once, choose when to buy them, and shop from the To buy view." />
   <meta name="twitter:image" content="https://shoppingcat.app/assets/social-card-en.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -185,11 +185,11 @@
       background: #6ee7b7;
       box-shadow: 0 1px 3px rgba(87, 51, 31, 0.16), 0 0 0 1px rgba(16, 185, 129, 0.2) inset;
     }
-    .app-tile.status-running-low {
+    .app-tile.status-buy-sometime {
       background: #fde047;
       box-shadow: 0 1px 3px rgba(87, 51, 31, 0.16), 0 0 0 1px rgba(234, 179, 8, 0.3) inset;
     }
-    .app-tile.status-need-to-buy {
+    .app-tile.status-buy-now {
       background: #fca5a5;
       box-shadow: 0 1px 3px rgba(87, 51, 31, 0.16), 0 0 0 1px rgba(239, 68, 68, 0.4) inset;
     }
@@ -375,9 +375,9 @@
         <img class="hero-brand-logo" src="../assets/logo.png" alt="" width="104" height="104" />
         <span class="hero-brand-name">Shopping Cat</span>
       </div>
-      <p class="hero-slogan">Proste i przyjemne rozwiązanie dla powtarzalnych zakupów.</p>
-      <h1>Dom, o który dba<br><span>każdy domownik.</span></h1>
-      <p>Dodaj produkty raz, a potem oznaczaj ich status jednym stuknięciem: OK, Kończy się albo Trzeba kupić. W sklepie otwierasz Brakujące i widzisz tylko to, co trzeba dokupić.</p>
+      <p class="hero-slogan">Lista nie musi powstawać od zera przed każdymi zakupami.</p>
+      <h1>Stałe listy produktów.<br><span>Stuknij status i kupuj bez zgadywania.</span></h1>
+      <p>Dodaj produkty raz i jednym stuknięciem wskaż rekomendowany moment zakupu: OK, Kupić przy okazji albo Kupić natychmiast. OK oznacza, że produkt jest dostępny lub nie jest teraz potrzebny. W sklepie otwierasz Do kupienia.</p>
       <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshopping.app&amp;referrer=utm_source%3Dshoppingcat.app%26utm_medium%3Dlanding_page%26utm_campaign%3Dlaunch_pl">Pobierz z Google Play</a>
     </div>
     <div data-lang="en">
@@ -387,7 +387,7 @@
       </div>
       <p class="hero-slogan">A shopping list should not start from scratch every time.</p>
       <h1>Recurring stock lists.<br><span>Tap status and shop without guessing.</span></h1>
-      <p>Create lists for home, the garage, the car, the office, trips, or other places you manage. Add recurring products once, then update each status with one tap: OK, Running low, or Need to buy.</p>
+      <p>Create lists for home, the garage, the car, the office, trips, or other places you manage. Add recurring products once, then tap when to buy them: OK, Buy sometime, or Buy now. OK means the product is available or not needed right now.</p>
       <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshopping.app&amp;referrer=utm_source%3Dshoppingcat.app%26utm_medium%3Dlanding_page%26utm_campaign%3Dlaunch_en">Get it on Google Play</a>
     </div>
   </section>
@@ -405,13 +405,13 @@
     <div class="screenshots-row">
       <div class="phone-wrap">
         <img src="../screenshots/screenshot_pro_main.png" alt="Recurring product list main view" loading="lazy" />
-        <p data-lang="pl" class="phone-caption">Stała lista powtarzalnych produktów</p>
-        <p data-lang="en" class="phone-caption">Recurring products, current status</p>
+        <p data-lang="pl" class="phone-caption">Stała lista i rekomendowany moment zakupu</p>
+        <p data-lang="en" class="phone-caption">Persistent products and when to buy them</p>
       </div>
       <div class="phone-wrap">
         <img src="../screenshots/screenshot_pro_cart.png" alt="Shopping mode" loading="lazy" />
-        <p data-lang="pl" class="phone-caption">Tryb sklepowy pokazuje tylko produkty wymagające uzupełnienia</p>
-        <p data-lang="en" class="phone-caption">Shopping view with only missing items</p>
+        <p data-lang="pl" class="phone-caption">Do kupienia pokazuje oba aktywne statusy zakupowe</p>
+        <p data-lang="en" class="phone-caption">To buy shows both purchase recommendations</p>
       </div>
       <div class="phone-wrap">
         <img src="../screenshots/screenshot_pro_menu.png" alt="Shared lists menu" loading="lazy" />
@@ -434,11 +434,11 @@
   <section class="tile-demo">
     <div data-lang="pl">
       <p class="section-label">Jedno kliknięcie</p>
-      <h2 class="section-title" id="tile-demo-title">OK → Kończy się → Trzeba kupić → OK.</h2>
+      <h2 class="section-title" id="tile-demo-title">OK → Kupić przy okazji → Kupić natychmiast → OK.</h2>
     </div>
     <div data-lang="en">
       <p class="section-label">One tap</p>
-      <h2 class="section-title" id="tile-demo-title-en">OK → Running low → Need to buy → OK.</h2>
+      <h2 class="section-title" id="tile-demo-title-en">OK → Buy sometime → Buy now → OK.</h2>
     </div>
     <div class="tile-demo-shell">
       <button class="app-tile status-ok" type="button" id="demo-tile" aria-live="polite">
@@ -456,10 +456,10 @@
       <p class="section-label">Funkcje</p>
       <h2 class="section-title">Stała lista, aktualny status, mniej dopytywania.</h2>
       <div class="pillars-grid">
-        <div class="pillar"><div class="pillar-icon">👆</div><h3>Trzy statusy, jedno stuknięcie</h3><p>Każdy produkt ma prosty stan: OK, Kończy się albo Trzeba kupić. Codzienna obsługa nie wymaga przepisywania listy.</p></div>
-        <div class="pillar"><div class="pillar-icon">🛒</div><h3>Brakujące w sklepie</h3><p>Widzisz tylko produkty do uzupełnienia. Po zakupie stukasz produkt na OK, a on znika z aktywnego widoku.</p></div>
+        <div class="pillar"><div class="pillar-icon">👆</div><h3>Trzy statusy, jedno stuknięcie</h3><p>Każdy status mówi, kiedy kupić produkt: OK, Kupić przy okazji albo Kupić natychmiast. Codzienna obsługa nie wymaga przepisywania listy.</p></div>
+        <div class="pillar"><div class="pillar-icon">🛒</div><h3>Do kupienia w sklepie</h3><p>Widzisz produkty oznaczone Kupić przy okazji lub Kupić natychmiast. Po zakupie stukasz produkt na OK, a on znika z aktywnego widoku.</p></div>
         <div class="pillar"><div class="pillar-icon">🔄</div><h3>Wspólne listy w czasie rzeczywistym</h3><p>Udostępnij listę rodzinie lub innym osobom. Zmiany statusu pojawiają się u wszystkich od razu.</p></div>
-        <div class="pillar"><div class="pillar-icon">🔔</div><h3>Przypomnienia o ważnych produktach <span class="feature-badge">Pro</span></h3><p>Oznacz ważny produkt i ustaw przypomnienie, gdy jest w statusie Trzeba kupić.</p></div>
+        <div class="pillar"><div class="pillar-icon">🔔</div><h3>Przypomnienia o ważnych produktach <span class="feature-badge">Pro</span></h3><p>Oznacz ważny produkt i ustaw przypomnienie, gdy jest w statusie Kupić natychmiast.</p></div>
         <div class="pillar"><div class="pillar-icon">📷</div><h3>Zdjęcia produktów <span class="feature-badge">Pro</span></h3><p>Dodaj zdjęcie z aparatu lub galerii, gdy liczy się konkretna marka, rozmiar albo wariant.</p></div>
         <div class="pillar"><div class="pillar-icon">📝</div><h3>Notatki do produktów</h3><p>Zapisz markę, pojemność, ilość lub inne szczegóły, które pomagają kupić dokładnie to, o co chodzi.</p></div>
       </div>
@@ -468,10 +468,10 @@
       <p class="section-label">Features</p>
       <h2 class="section-title">Persistent lists, current status, fewer messages.</h2>
       <div class="pillars-grid">
-        <div class="pillar"><div class="pillar-icon">👆</div><h3>Three states, one tap</h3><p>Each product has a simple status: OK, Running low, or Need to buy. Daily use does not mean rewriting the list.</p></div>
-        <div class="pillar"><div class="pillar-icon">🛒</div><h3>Shopping view</h3><p>See only products that need restocking. Already in the cart? Tap it back to OK and it leaves the active view.</p></div>
+        <div class="pillar"><div class="pillar-icon">👆</div><h3>Three statuses, one tap</h3><p>Each status says when to buy the product: OK, Buy sometime, or Buy now. Daily use does not mean rewriting the list.</p></div>
+        <div class="pillar"><div class="pillar-icon">🛒</div><h3>To buy in the store</h3><p>See products marked Buy sometime or Buy now. Already in the cart? Tap it back to OK and it leaves the active view.</p></div>
         <div class="pillar"><div class="pillar-icon">🔄</div><h3>Shared lists in real time</h3><p>Share a list with family, roommates, coworkers, or anyone who helps restock it. Status changes appear instantly.</p></div>
-        <div class="pillar"><div class="pillar-icon">🔔</div><h3>Important-product reminders <span class="feature-badge">Pro</span></h3><p>Mark a product as important and get a reminder when it is currently Need to buy.</p></div>
+        <div class="pillar"><div class="pillar-icon">🔔</div><h3>Important-product reminders <span class="feature-badge">Pro</span></h3><p>Mark a product as important and get a reminder when it is currently Buy now.</p></div>
         <div class="pillar"><div class="pillar-icon">📷</div><h3>Product photos <span class="feature-badge">Pro</span></h3><p>Add a camera or gallery photo when the exact brand, size, or variant matters.</p></div>
         <div class="pillar"><div class="pillar-icon">📝</div><h3>Product notes</h3><p>Save brand, size, quantity, or other details so the next shopper knows what to pick.</p></div>
       </div>
@@ -486,8 +486,8 @@
       <div class="steps">
         <div class="step"><div class="step-num">1</div><div><h3>Utwórz stałą listę</h3><p>Załóż listę dla domu, garażu, auta, biura, wyjazdu albo innego miejsca, które regularnie uzupełniasz.</p></div></div>
         <div class="step"><div class="step-num">2</div><div><h3>Dodaj produkty raz</h3><p>Wpisz rzeczy kupowane regularnie: mleko, chleb, kawę, środki czystości, płyn do spryskiwaczy lub zapasy biurowe.</p></div></div>
-        <div class="step"><div class="step-num">3</div><div><h3>Stukaj status</h3><p>Gdy coś się kończy, zmień status jednym stuknięciem. Gdy trzeba kupić, produkt zostaje widoczny do czasu zakupów.</p></div></div>
-        <div class="step"><div class="step-num">4</div><div><h3>W sklepie użyj Brakujące</h3><p>Widok pokazuje tylko produkty do uzupełnienia. Kupione rzeczy stukasz na OK i idziesz dalej.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3>Wskaż moment zakupu</h3><p>Stuknij Kupić przy okazji, gdy zakup może poczekać, albo Kupić natychmiast, gdy nie powinien. Ustaw OK, jeśli produkt jest dostępny lub nie jest teraz potrzebny.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3>W sklepie użyj Do kupienia</h3><p>Widok pokazuje oba aktywne statusy zakupowe. Kupione rzeczy stukasz na OK i idziesz dalej.</p></div></div>
         <div class="step"><div class="step-num">5</div><div><h3>Udostępnij listę w Pro</h3><p>Wyślij 5-znakowy kod zaproszenia. Zaproszone osoby widzą te same statusy w czasie rzeczywistym.</p></div></div>
       </div>
     </div>
@@ -497,8 +497,8 @@
       <div class="steps">
         <div class="step"><div class="step-num">1</div><div><h3>Create a recurring list</h3><p>Make a list for home, the garage, the car, the office, a trip, or another place you restock regularly.</p></div></div>
         <div class="step"><div class="step-num">2</div><div><h3>Add products once</h3><p>Add the things you keep buying: milk, bread, coffee, detergent, washer fluid, or office paper towels.</p></div></div>
-        <div class="step"><div class="step-num">3</div><div><h3>Tap the status</h3><p>When something is running low, update it with one tap. When it needs buying, it stays visible for the next trip.</p></div></div>
-        <div class="step"><div class="step-num">4</div><div><h3>Use the shopping view</h3><p>See only products that need restocking. Tap bought items back to OK and keep moving through the store.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3>Choose when to buy</h3><p>Tap Buy sometime when the purchase can wait, or Buy now when it should not. Choose OK when the product is available or not needed right now.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3>Use To buy in the store</h3><p>See both active purchase recommendations. Tap bought items back to OK and keep moving through the store.</p></div></div>
         <div class="step"><div class="step-num">5</div><div><h3>Share the list in Pro</h3><p>Send a 5-character invite code. Invited people see the same product statuses in real time.</p></div></div>
       </div>
     </div>
@@ -514,8 +514,8 @@
           <thead><tr><th>Zwykłe aplikacje do list</th><th>Shopping Cat</th></tr></thead>
           <tbody>
             <tr><td>Jednorazowa lista przed każdym wyjściem</td><td>Stała lista produktów, na której zmieniasz tylko status</td></tr>
-            <tr><td>Odhaczasz i wyrzucasz listę</td><td>Lista zostaje, a statusy krążą między OK, Kończy się i Trzeba kupić</td></tr>
-            <tr><td>W sklepie czytasz całą listę od nowa</td><td>Brakujące pokazuje tylko aktywne produkty do kupienia</td></tr>
+            <tr><td>Odhaczasz i wyrzucasz listę</td><td>Lista zostaje, a statusy określają moment zakupu: OK, Kupić przy okazji lub Kupić natychmiast</td></tr>
+            <tr><td>W sklepie czytasz całą listę od nowa</td><td>Do kupienia pokazuje oba aktywne statusy zakupowe</td></tr>
             <tr><td>Udostępnianie często jest dodatkiem</td><td>W Pro wspólna lista aktualizuje się u wszystkich w czasie rzeczywistym</td></tr>
             <tr><td>Notatki i zdjęcia łatwo giną poza listą</td><td>Szczegóły, notatki i zdjęcia są przy konkretnym produkcie</td></tr>
             <tr><td>Dwie osoby mogą kupić to samo</td><td>Aktualny status pomaga ograniczyć dopytywanie i podwójne zakupy</td></tr>
@@ -531,8 +531,8 @@
           <thead><tr><th>Traditional list apps</th><th>Shopping Cat</th></tr></thead>
           <tbody>
             <tr><td>Disposable list before each trip</td><td>Persistent stock list where only the status changes</td></tr>
-            <tr><td>Check off items and discard the list</td><td>The list stays, and statuses keep cycling through OK, Running low, and Need to buy</td></tr>
-            <tr><td>Read the whole list again in the store</td><td>The shopping view shows only active missing items</td></tr>
+            <tr><td>Check off items and discard the list</td><td>The list stays, and statuses say when to buy: OK, Buy sometime, or Buy now</td></tr>
+            <tr><td>Read the whole list again in the store</td><td>To buy shows both active purchase recommendations</td></tr>
             <tr><td>Sharing is often an add-on</td><td>In Pro, shared lists update for everyone in real time</td></tr>
             <tr><td>Notes and photos live outside the list</td><td>Details, notes, and photos stay attached to the product</td></tr>
             <tr><td>Two people can buy the same thing</td><td>Current status helps reduce asking and duplicate purchases</td></tr>
@@ -550,11 +550,11 @@
       <div class="mission-grid">
         <div class="mission-block">
           <h3>Więcej niż lista zakupów</h3>
-          <p>Gdy cały dom widzi to samo, znika ciągłe dopytywanie „mamy jeszcze...?” i sprawdzanie po raz dziesiąty, czego brakuje. Odpowiedzialność rozkłada się na wszystkich domowników, maleje napięcie i ubywa cichych pretensji o to, że znów ktoś o czymś zapomniał.</p>
+          <p>Gdy cały dom widzi tę samą rekomendację — OK, Kupić przy okazji albo Kupić natychmiast — znika ciągłe dopytywanie, co kupić i jak pilny jest zakup. Odpowiedzialność rozkłada się na wszystkich domowników, maleje napięcie i ubywa cichych pretensji o to, że znów ktoś o czymś zapomniał.</p>
         </div>
         <div class="mission-block">
           <h3>Nasza misja</h3>
-          <p>Shopping Cat to pomysł na to, by codzienne, czasochłonne obowiązki łączyły domowników, zamiast ich obciążać. Drobna zmiana w myśleniu o zakupach i tym, co mamy w domu, może wnieść do rodzinnego życia więcej spokoju i harmonii.</p>
+          <p>Shopping Cat to pomysł na to, by codzienne, czasochłonne obowiązki łączyły domowników, zamiast ich obciążać. Drobna zmiana w tym, jak wspólnie decydujemy, co i kiedy kupić, może wnieść do rodzinnego życia więcej spokoju i harmonii.</p>
         </div>
       </div>
     </div>
@@ -564,11 +564,11 @@
       <div class="mission-grid">
         <div class="mission-block">
           <h3>More than a shopping list</h3>
-          <p>When everyone sees the same product status, there are fewer “do we still have...?” messages and fewer last-minute checks. Responsibility is shared, duplicate purchases happen less often, and everyday restocking becomes calmer.</p>
+          <p>When everyone sees the same recommendation — OK, Buy sometime, or Buy now — there are fewer messages about what to buy and how urgent it is. Responsibility is shared, duplicate purchases happen less often, and everyday shopping becomes calmer.</p>
         </div>
         <div class="mission-block">
           <h3>Our mission</h3>
-          <p>Shopping Cat is built around a simple idea: recurring chores should connect people instead of weighing on one person. A small change in how a home tracks what it has and what it needs can make daily life more peaceful.</p>
+          <p>Shopping Cat is built around a simple idea: recurring chores should connect people instead of weighing on one person. A small change in how people decide together what to buy and when can make daily life more peaceful.</p>
         </div>
       </div>
     </div>
@@ -582,7 +582,7 @@
       <div class="who-grid">
         <div class="who-card"><strong>Dom i rodzina</strong>Stałe produkty, które powinny być pod kontrolą wszystkich domowników.</div>
         <div class="who-card"><strong>Pary i współlokatorzy</strong>Wspólne zakupy bez ciągłego pytania, czy coś już jest kupione.</div>
-        <div class="who-card"><strong>Biuro i wspólne kuchnie</strong>Kawa, herbata, ręczniki papierowe i inne zapasy, które kończą się regularnie.</div>
+        <div class="who-card"><strong>Biuro i wspólne kuchnie</strong>Kawa, herbata, ręczniki papierowe i inne produkty kupowane regularnie.</div>
         <div class="who-card"><strong>Auto, garaż i wyjazdy</strong>Osobne listy dla miejsc i sytuacji, których nie chcesz odtwarzać od zera.</div>
       </div>
     </div>
@@ -592,7 +592,7 @@
       <div class="who-grid">
         <div class="who-card"><strong>Home and family</strong>Recurring products that should not depend on one person's memory.</div>
         <div class="who-card"><strong>Couples and roommates</strong>Shared shopping without asking whether something was already bought.</div>
-        <div class="who-card"><strong>Offices and shared kitchens</strong>Coffee, tea, paper towels, and supplies that run out again and again.</div>
+        <div class="who-card"><strong>Offices and shared kitchens</strong>Coffee, tea, paper towels, and other products purchased regularly.</div>
         <div class="who-card"><strong>Car, garage, and trips</strong>Separate lists for places and situations you do not want to recreate from scratch.</div>
       </div>
     </div>
@@ -634,11 +634,11 @@
     if (lang === 'en') {
       toggle.href = '../';
       toggle.textContent = 'PL';
-      document.title = 'Shopping Cat: Recurring Stock Lists';
+      document.title = 'Shopping Cat: Persistent Stock Lists';
     } else {
       toggle.href = './';
       toggle.textContent = 'EN';
-      document.title = 'Shopping Cat: Lista zakupów i domowe zapasy';
+      document.title = 'Shopping Cat: Stałe listy produktów';
     }
 
     const tile = document.getElementById('demo-tile');
@@ -651,14 +651,14 @@
         en: 'OK',
       },
       {
-        className: 'status-running-low',
-        pl: 'Kończy się',
-        en: 'Running low',
+        className: 'status-buy-sometime',
+        pl: 'Kupić przy okazji',
+        en: 'Buy sometime',
       },
       {
-        className: 'status-need-to-buy',
-        pl: 'Trzeba kupić',
-        en: 'Need to buy',
+        className: 'status-buy-now',
+        pl: 'Kupić natychmiast',
+        en: 'Buy now',
       },
     ];
     let demoStatusIndex = 0;
