@@ -226,6 +226,38 @@
       line-height: 1.65;
     }
     .tile-demo .section-title { margin-bottom: 1.5rem; }
+    .tile-demo-stage { position: relative; display: inline-block; }
+    .tile-demo-hint {
+      position: absolute; right: calc(100% + 0.35rem); top: -1.1rem;
+      width: 128px;
+      display: flex; flex-direction: column; align-items: center;
+      pointer-events: none;
+      transition: opacity 200ms ease-out, visibility 200ms;
+    }
+    .tile-demo-hint.is-used { opacity: 0; visibility: hidden; }
+    .tile-demo-hint-text {
+      font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', cursive;
+      font-size: 1rem; font-weight: 700; line-height: 1.1;
+      color: var(--orange-dark);
+      transform: rotate(-6deg);
+      white-space: nowrap;
+    }
+    .tile-demo-hint svg {
+      display: block; width: 92px; height: auto; margin-top: 0.1rem;
+      animation: tile-demo-nudge 1.1s ease-in-out infinite;
+    }
+    @keyframes tile-demo-nudge {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(7px, -3px) rotate(-3deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tile-demo-hint svg { animation: none; }
+    }
+    @media (max-width: 380px) {
+      .tile-demo-hint { width: 88px; right: calc(100% + 0.1rem); }
+      .tile-demo-hint-text { font-size: 0.85rem; }
+      .tile-demo-hint svg { width: 68px; }
+    }
 
     /* ── PILLARS ── */
     .pillars { background: #fff6e8; padding: 4rem 1.5rem; }
@@ -379,9 +411,9 @@
         <img class="hero-brand-logo" src="assets/logo.png" alt="" width="104" height="104" />
         <span class="hero-brand-name">Shopping Cat</span>
       </div>
-      <p class="hero-slogan">Lista nie musi mieszkać w jednej głowie.</p>
-      <h1>Wspólna lista zakupów.<br><span>Kliknij, a cała rodzina wie, co kupić.</span></h1>
-      <p>Nie ma mleka? Kliknij je na liście, a wszyscy od razu widzą, co kupić przy okazji, a co natychmiast. Bez pisania do wszystkich, bez przepisywania listy i bez reklam.</p>
+      <p class="hero-slogan">Lista zakupów nie musi mieszkać w głowie jednego domownika.</p>
+      <h1>Wspólna lista zakupów.<br><span>1 Klik i już cała rodzina wie, co trzeba kupić.</span></h1>
+      <p>Nie ma mleka? Kliknij je na liście, a kolor podświetlenia powie domownikom, czy kupić je przy okazji, czy już się skończyło. Bez pisania do wszystkich, bez przepisywania listy. I bez reklam.</p>
       <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshopping.app&amp;referrer=utm_source%3Dshoppingcat.app%26utm_medium%3Dlanding_page%26utm_campaign%3Dlaunch_pl">Pobierz z Google Play</a>
       <p class="hero-note">Na razie na Androida. Wersja na iPhone'a jest w planach.</p>
     </div>
@@ -390,9 +422,9 @@
         <img class="hero-brand-logo" src="assets/logo.png" alt="" width="104" height="104" />
         <span class="hero-brand-name">Shopping Cat</span>
       </div>
-      <p class="hero-slogan">The list doesn't have to live in one person's head.</p>
-      <h1>A shared shopping list.<br><span>Tap, and the whole family knows what to buy.</span></h1>
-      <p>Out of milk? Tap it on the list and everyone instantly sees what to buy sometime and what to buy now. No group texts, no rewriting the list, no ads.</p>
+      <p class="hero-slogan">The shopping list doesn't have to live in one person's head.</p>
+      <h1>A shared shopping list.<br><span>1 tap and the whole family knows what to buy.</span></h1>
+      <p>Out of milk? Tap it on the list and the highlight color tells everyone whether to buy it sometime or it has already run out. No group texts, no rewriting the list. And no ads.</p>
       <a class="hero-cta" href="https://play.google.com/store/apps/details?id=com.homeshopping.app&amp;referrer=utm_source%3Dshoppingcat.app%26utm_medium%3Dlanding_page%26utm_campaign%3Dlaunch_en">Get it on Google Play</a>
       <p class="hero-note">Android for now, with the interface in Polish. Pro is available in Poland. An iPhone version is planned.</p>
     </div>
@@ -447,11 +479,23 @@
       <h2 class="section-title" id="tile-demo-title-en">OK → Buy sometime → Buy now → OK.</h2>
     </div>
     <div class="tile-demo-shell">
+      <div class="tile-demo-stage">
+        <div class="tile-demo-hint" id="demo-tile-hint" aria-hidden="true">
+          <span class="tile-demo-hint-text" data-lang="pl">Kliknij mnie!</span>
+          <span class="tile-demo-hint-text" data-lang="en">Tap me!</span>
+          <svg viewBox="0 0 120 86" fill="none">
+            <path d="M12 12 C 26 56, 60 70, 92 57" stroke="#24130b" stroke-width="15" stroke-linecap="round" />
+            <path d="M84 40 L113 47 L97 73 Z" fill="#f97316" stroke="#24130b" stroke-width="6" stroke-linejoin="round" />
+            <path d="M12 12 C 26 56, 60 70, 92 57" stroke="#f97316" stroke-width="8" stroke-linecap="round" />
+            <path d="M24 28 C 32 42, 44 50, 58 54" stroke="#fed7aa" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+        </div>
       <button class="app-tile status-ok" type="button" id="demo-tile" aria-live="polite">
         <span class="app-tile-emoji" aria-hidden="true">🥛</span>
         <span class="app-tile-name" data-lang="pl" data-display="flex">Mleko</span>
         <span class="app-tile-name" data-lang="en" data-display="flex">Milk</span>
       </button>
+      </div>
       <p class="tile-demo-caption" id="demo-tile-caption"></p>
     </div>
   </section>
@@ -466,7 +510,7 @@
         <div class="pillar"><div class="pillar-icon">⏳</div><h3>Wiadomo, co jest pilne</h3><p>To, co może poczekać (Kupić przy okazji), nie miesza się z tym, co trzeba kupić jak najszybciej (Kupić natychmiast).</p></div>
         <div class="pillar"><div class="pillar-icon">🔔</div><h3>Powiadomienia tylko w ważnej sprawie</h3><p>Telefon odzywa się, gdy ktoś oznaczy produkt jako Kupić natychmiast, i od razu podaje jego nazwę.</p></div>
         <div class="pillar"><div class="pillar-icon">🚫</div><h3>Bez reklam</h3><p>Ani w wersji darmowej, ani w Pro. Tylko lista, bez gazetek, przepisów i budżetów.</p></div>
-        <div class="pillar"><div class="pillar-icon">🛒</div><h3>Do kupienia w sklepie</h3><p>Widzisz tylko to, co trzeba kupić, ułożone według działów sklepu. Po zakupie klikasz produkt, status zmienia się na OK, a produkt znika z aktywnego widoku.</p></div>
+        <div class="pillar"><div class="pillar-icon">🛒</div><h3>Tryb zakupowy w sklepie</h3><p>Widzisz tylko to, co trzeba kupić, ułożone według działów sklepu. Po zakupie klikasz produkt, status zmienia się na OK, a produkt znika z aktywnego widoku.</p></div>
         <div class="pillar"><div class="pillar-icon">📝</div><h3>Dokładnie ten produkt</h3><p>Notatka z marką lub pojemnością jest za darmo. Zdjęcie z aparatu lub galerii masz w Pro.</p></div>
       </div>
     </div>
@@ -478,7 +522,7 @@
         <div class="pillar"><div class="pillar-icon">⏳</div><h3>You can tell what's urgent</h3><p>What can wait (Buy sometime) stays separate from what you need as soon as possible (Buy now).</p></div>
         <div class="pillar"><div class="pillar-icon">🔔</div><h3>Notifications only when it matters</h3><p>Your phone speaks up when someone marks a product Buy now, and it names the product.</p></div>
         <div class="pillar"><div class="pillar-icon">🚫</div><h3>No ads</h3><p>Not in the free version, not in Pro. Just the list, with no flyers, recipes, or budgets.</p></div>
-        <div class="pillar"><div class="pillar-icon">🛒</div><h3>To buy in the store</h3><p>See only what you need to buy, grouped by store aisle. Already in the cart? Tap it back to OK and it leaves the active view.</p></div>
+        <div class="pillar"><div class="pillar-icon">🛒</div><h3>Shopping mode in the store</h3><p>See only what you need to buy, grouped by store aisle. Already in the cart? Tap it back to OK and it leaves the active view.</p></div>
         <div class="pillar"><div class="pillar-icon">📝</div><h3>Exactly the right product</h3><p>A note with the brand or size is free. A camera or gallery photo comes with Pro.</p></div>
       </div>
     </div>
@@ -492,9 +536,8 @@
       <div class="steps">
         <div class="step"><div class="step-num">1</div><div><h3>Zacznij bez konta</h3><p>Pierwsza lista ma gotowy zestaw popularnych produktów, więc nie zaczynasz od pustego ekranu.</p></div></div>
         <div class="step"><div class="step-num">2</div><div><h3>Dopasuj ją raz</h3><p>Dodaj to, co kupujesz regularnie, i usuń to, czego nie potrzebujesz. Później już tylko klikasz.</p></div></div>
-        <div class="step"><div class="step-num">3</div><div><h3>Wskaż moment zakupu</h3><p>Kliknij Kupić przy okazji, gdy zakup może poczekać, albo Kupić natychmiast, gdy nie powinien. Ustaw OK, jeśli produkt jest dostępny lub nie jest teraz potrzebny.</p></div></div>
-        <div class="step"><div class="step-num">4</div><div><h3>W sklepie użyj Do kupienia</h3><p>Widok pokazuje tylko to, co do kupienia, ułożone według działów. Klikasz kupione rzeczy, ich status wraca na OK, a Ty idziesz dalej.</p></div></div>
-        <div class="step"><div class="step-num">5</div><div><h3>Udostępnij listę</h3><p>Wyślij 5-znakowy kod zaproszenia. Za darmo do 3 osób, w Pro do 6. Zaproszone osoby widzą te same statusy w czasie rzeczywistym.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3>Kliknij produkt, który się skończył</h3><p>Kliknij Kupić przy okazji, gdy zakup może poczekać, albo Kupić natychmiast, gdy nie powinien. Ustaw OK, jeśli produkt jest dostępny lub nie jest teraz potrzebny.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3>W sklepie użyj trybu zakupowego</h3><p>Widok pokazuje tylko to, co do kupienia, ułożone według działów. Klikasz kupione rzeczy, ich status wraca na OK, a Ty idziesz dalej.</p></div></div>
       </div>
     </div>
     <div data-lang="en" id="how">
@@ -503,9 +546,8 @@
       <div class="steps">
         <div class="step"><div class="step-num">1</div><div><h3>Start without an account</h3><p>Your first list comes with a ready set of common products, so you don't start from an empty screen.</p></div></div>
         <div class="step"><div class="step-num">2</div><div><h3>Adjust it once</h3><p>Add what you buy regularly and remove what you don't need. After that, you just tap.</p></div></div>
-        <div class="step"><div class="step-num">3</div><div><h3>Choose when to buy</h3><p>Tap Buy sometime when the purchase can wait, or Buy now when it should not. Choose OK when the product is available or not needed right now.</p></div></div>
-        <div class="step"><div class="step-num">4</div><div><h3>Use To buy in the store</h3><p>See only what you need to buy, grouped by aisle. Tap bought items back to OK and keep moving through the store.</p></div></div>
-        <div class="step"><div class="step-num">5</div><div><h3>Share the list</h3><p>Send a 5-character invite code. Free for up to 3 people, up to 6 with Pro. Invited people see the same product statuses in real time.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3>Tap the product that ran out</h3><p>Tap Buy sometime when the purchase can wait, or Buy now when it should not. Choose OK when the product is available or not needed right now.</p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3>Use shopping mode in the store</h3><p>See only what you need to buy, grouped by aisle. Tap bought items back to OK and keep moving through the store.</p></div></div>
       </div>
     </div>
   </section>
@@ -560,7 +602,7 @@
         </div>
         <div class="mission-block">
           <h3>Nasza misja</h3>
-          <p>Shopping Cat to pomysł na to, by codzienne, czasochłonne obowiązki łączyły domowników, zamiast ich obciążać. Drobna zmiana w tym, jak wspólnie decydujemy, co i kiedy kupić, może wnieść do rodzinnego życia więcej spokoju i harmonii.</p>
+          <p>Shopping Cat to pomysł na to, by codzienne, czasochłonne obowiązki łączyły domowników, zamiast ich obciążać. Drobna zmiana w tym, jak wspólnie decydujemy, co i kiedy kupić, może wnieść do rodzinnego życia więcej spokoju i harmonii. Co więcej, celem nadrzędnym przy tworzeniu aplikacji była prostota i intuicyjność obsługi, dzięki czemu staje się świetnym narzędziem do nauki dla najmłodszych. Angażując dzieci w proste decyzje zakupowe, pokazujesz im, jak ważny jest ich wkład w życie rodziny i budujesz z nimi dobre nawyki na przyszłość.</p>
         </div>
       </div>
     </div>
@@ -574,7 +616,7 @@
         </div>
         <div class="mission-block">
           <h3>Our mission</h3>
-          <p>Shopping Cat is built around a simple idea: recurring chores should connect people instead of weighing on one person. A small change in how people decide together what to buy and when can make daily life more peaceful.</p>
+          <p>Shopping Cat is built around a simple idea: recurring chores should connect people instead of weighing on one person. A small change in how people decide together what to buy and when can make daily life more peaceful. What's more, simplicity and ease of use were the top priorities in building the app, which makes it a great learning tool for the youngest family members. By involving children in simple shopping decisions, you show them how much their contribution to family life matters and build good habits together for the future.</p>
         </div>
       </div>
     </div>
@@ -584,21 +626,21 @@
   <section class="who" id="dla-kogo">
     <div data-lang="pl">
       <p class="section-label">Dla kogo</p>
-      <h2 class="section-title">Dla domu i innych miejsc, które trzeba uzupełniać.</h2>
+      <h2 class="section-title">Wszędzie tam, gdzie kończą się zapasy i zaczyna współpraca.</h2>
       <div class="who-grid">
         <div class="who-card"><strong>Dom i rodzina</strong>Stałe produkty, które powinny być pod kontrolą wszystkich domowników.</div>
         <div class="who-card"><strong>Pary i współlokatorzy</strong>Wspólne zakupy bez ciągłego pytania, czy coś już jest kupione.</div>
-        <div class="who-card"><strong>Biuro i wspólne kuchnie</strong>Kawa, herbata, ręczniki papierowe i inne produkty kupowane regularnie.</div>
+        <div class="who-card"><strong>Firmowa kuchnia i biuro</strong>Kawa, herbata, ręczniki papierowe i inne produkty kupowane regularnie.</div>
         <div class="who-card"><strong>Auto, garaż i wyjazdy</strong>Osobne listy dla miejsc i sytuacji, których nie chcesz odtwarzać od zera. W Pro.</div>
       </div>
     </div>
     <div data-lang="en">
       <p class="section-label">Who it's for</p>
-      <h2 class="section-title">For home and every recurring supply list around it.</h2>
+      <h2 class="section-title">Wherever supplies run out and teamwork begins.</h2>
       <div class="who-grid">
         <div class="who-card"><strong>Home and family</strong>Recurring products that should not depend on one person's memory.</div>
         <div class="who-card"><strong>Couples and roommates</strong>Shared shopping without asking whether something was already bought.</div>
-        <div class="who-card"><strong>Offices and shared kitchens</strong>Coffee, tea, paper towels, and other products purchased regularly.</div>
+        <div class="who-card"><strong>Company kitchens and offices</strong>Coffee, tea, paper towels, and other products purchased regularly.</div>
         <div class="who-card"><strong>Car, garage, and trips</strong>Separate lists for places and situations you do not want to recreate from scratch. With Pro.</div>
       </div>
     </div>
@@ -610,7 +652,7 @@
       <p class="section-label">Za darmo i w Pro</p>
       <h2 class="section-title">Zacznij za darmo. Pro, gdy lista urośnie.</h2>
       <div class="who-grid">
-        <div class="who-card"><strong>Za darmo</strong>Jedna wspólna lista dla maksymalnie 3 osób, synchronizacja na żywo, zaproszenia, praca bez internetu, powiadomienia, działy sklepu, notatki i cofanie w trybie zakupów. Konto jest potrzebne, żeby zaprosić innych.</div>
+        <div class="who-card"><strong>Za darmo</strong>Jedna wspólna lista dla maksymalnie 3 osób, synchronizacja na żywo, zaproszenia, praca bez internetu, powiadomienia, działy sklepu, notatki i cofanie w trybie zakupowym. Konto jest potrzebne, żeby zaprosić innych.</div>
         <div class="who-card"><strong>14 dni Pro bez karty</strong>Po założeniu konta. Potem nic nie znika: dodatkowe listy zostają do podglądu.</div>
         <div class="who-card"><strong>Pro: jedna opłata za całą rodzinę</strong>Osobna lista dla każdego miejsca, do 6 osób, sklepy i własna kolejność działów, ogłoszenie dla rodziny przed zakupami, zdjęcia produktów, codzienne przypomnienie i zakupy ze wszystkich list naraz.</div>
       </div>
@@ -671,6 +713,7 @@
 
     const tile = document.getElementById('demo-tile');
     const caption = document.getElementById('demo-tile-caption');
+    const hint = document.getElementById('demo-tile-hint');
     let audioContext = null;
     const demoStatuses = [
       {
@@ -749,6 +792,7 @@
       tile.addEventListener('click', () => {
         void playClickTick();
         cycleDemoStatus();
+        hint.classList.add('is-used');
       });
       tile.addEventListener('pointerdown', () => tile.classList.add('is-pressed'));
       ['pointerup', 'pointercancel', 'pointerleave'].forEach(eventName => {
