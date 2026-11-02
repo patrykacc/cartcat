@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="Darmowa aplikacja na Androida do wspólnych list zakupów, bez reklam." />
+  <title>Pobierz Shopping Cat</title>
+  <link rel="canonical" href="https://shoppingcat.app/" />
+  <link rel="icon" type="image/png" href="../assets/logo.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #f97316;
+      --orange-dark: #c2410c;
+      --amber: #fbbf24;
+      --dark: #24130b;
+      --mid: #57331f;
+      --muted: #8a5a3b;
+      --border: #fed7aa;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top center, rgba(251, 191, 36, 0.34), transparent 32rem),
+        linear-gradient(160deg, #fff7ed 0%, #fffbf4 52%, #fff1dc 100%);
+      color: var(--dark);
+      line-height: 1.5;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+    }
+
+    main { width: 100%; max-width: 26rem; text-align: center; }
+
+    .logo { width: 7rem; height: 7rem; border-radius: 50%; box-shadow: 0 12px 32px rgba(124, 45, 18, 0.22); }
+
+    h1 { font-size: 2rem; line-height: 1.15; margin-top: 1.25rem; }
+
+    .lead { font-size: 1.15rem; color: var(--mid); margin-top: 0.5rem; }
+
+    ul { list-style: none; margin-top: 1.5rem; text-align: left; }
+
+    li {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 0.875rem;
+      padding: 0.75rem 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .cta {
+      display: block;
+      background: var(--orange-dark);
+      color: var(--white);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 0.875rem;
+      padding: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .cta:hover, .cta:focus-visible { background: #9a3412; }
+
+    .note { color: var(--muted); margin-top: 0.75rem; }
+
+    footer { font-size: 0.875rem; margin-top: 1.5rem; }
+
+    footer a { color: var(--mid); }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="../assets/logo.png" alt="" width="112" height="112" />
+    <h1>Shopping Cat</h1>
+    <p class="lead">Wspólna lista zakupów, której nie piszesz od nowa.</p>
+    <ul>
+      <li>Klikasz produkt, gdy się kończy.</li>
+      <li>Cała rodzina widzi to od razu.</li>
+      <li>W sklepie masz gotową listę.</li>
+    </ul>
+    <a id="play" class="cta" href="https://play.google.com/store/apps/details?id=com.homeshopping.app&amp;referrer=utm_source%3Dshoppingcat.app%26utm_medium%3Dlanding_page%26utm_campaign%3Dpobierz">Pobierz z Google Play</a>
+    <p class="note">Darmowa aplikacja na Androida, bez reklam.</p>
+    <footer><a href="../privacy/">Polityka prywatności</a></footer>
+  </main>
+  <script>
+    (function () {
+      var films = ['konczy_sie_mleko', 'lista_w_glowie', 'bez_reklam'];
+      var film = new URLSearchParams(window.location.search).get('film');
+      if (films.indexOf(film) === -1) return;
+      document.getElementById('play').href =
+        'https://play.google.com/store/apps/details?id=com.homeshopping.app&referrer=' +
+        'utm_source%3Dmeta%26utm_medium%3Dpaid%26utm_campaign%3Dtest_przekazu_2026_11%26utm_content%3D' + film;
+    })();
+  </script>
+</body>
+</html>
