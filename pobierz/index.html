@@ -95,10 +95,52 @@
     (function () {
       var films = ['konczy_sie_mleko', 'lista_w_glowie', 'bez_reklam'];
       var film = new URLSearchParams(window.location.search).get('film');
-      if (films.indexOf(film) === -1) return;
-      document.getElementById('play').href =
-        'https://play.google.com/store/apps/details?id=com.homeshopping.app&referrer=' +
-        'utm_source%3Dmeta%26utm_medium%3Dpaid%26utm_campaign%3Dtest_przekazu_2026_11%26utm_content%3D' + film;
+      var known = films.indexOf(film) !== -1;
+      var play = document.getElementById('play');
+      if (known) {
+        play.href =
+          'https://play.google.com/store/apps/details?id=com.homeshopping.app&referrer=' +
+          'utm_source%3Dmeta%26utm_medium%3Dpaid%26utm_campaign%3Dtest_przekazu_2026_11%26utm_content%3D' + film;
+      }
+
+      // Two anonymous PostHog events (page view, button click). No cookies, no
+      // local storage, no click ids, no full user agent. The id lives only for
+      // this page load so the two events can form a funnel.
+      try {
+        var ua = navigator.userAgent || '';
+        var pageId = 'web-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+        var properties = {
+          $process_person_profile: false,
+          $lib: 'shoppingcat-web',
+          page: 'pobierz',
+          film: known ? film : 'other',
+          utm_source: known ? 'meta' : 'shoppingcat.app',
+          utm_medium: known ? 'paid' : 'landing_page',
+          utm_campaign: known ? 'test_przekazu_2026_11' : 'pobierz',
+          in_app_browser: /Instagram/.test(ua) ? 'instagram' : /FBAN|FBAV|FB_IAB/.test(ua) ? 'facebook' : 'none',
+          os_family: /Android/i.test(ua) ? 'android' : /iPhone|iPad|iPod/.test(ua) ? 'ios' : 'other'
+        };
+        var send = function (event) {
+          var body = JSON.stringify({
+            api_key: 'phc_wSjKwejYacYfRqBtkwJDk32LdsBgxeCHZKg3YkNdj3h6',
+            event: event,
+            distinct_id: pageId,
+            timestamp: new Date().toISOString(),
+            properties: properties
+          });
+          var url = 'https://eu.i.posthog.com/i/v0/e/';
+          var blob = new Blob([body], { type: 'text/plain' });
+          if (navigator.sendBeacon && navigator.sendBeacon(url, blob)) return;
+          if (window.fetch) {
+            fetch(url, { method: 'POST', body: blob, keepalive: true, mode: 'cors', credentials: 'omit' })
+              .catch(function () {});
+          }
+        };
+        send('download_page_viewed');
+        play.addEventListener('click', function () {
+          try { send('download_button_clicked'); } catch (e) {}
+        });
+      } catch (e) {}
     })();
   </script>
 </body>
